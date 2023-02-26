@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/',[homeController::class],'home')->name('homes');
+
 // Proses Registrasi
 Route::get('/',[loginController::class,'login'])->name('login');
 Route::get('/register',[registerController::class,'register'])->name('register');
