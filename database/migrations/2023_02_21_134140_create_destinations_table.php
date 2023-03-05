@@ -18,7 +18,11 @@ class CreateDestinationsTable extends Migration
             $table->string('dest_name');
             // $table->unsignedBigInteger('dest_id');
             // $table->foreign('dest_id')->references('id')->on('dest_photos');
+<<<<<<< HEAD
             $table->string('dest_id'); //Ini kenapa ada dest_id?
+=======
+            $table->string('dest_id');
+>>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
             $table->string('dest_category');
             $table->string('dest_location');
             $table->text('dest_desc');

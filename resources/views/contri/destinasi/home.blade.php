@@ -16,11 +16,7 @@
     <section class="navigasi mb-4">
         <nav class="navbar navbar-expand-lg box-navbar" data-bs-theme="white">
             <div class="container p-2">
-<<<<<<< HEAD
-                <a class="navbar-brand ms-3" href="{{ route('admin') }}">
-=======
                 <a class="navbar-brand ms-3" href="#">
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
                     <img src="{{ asset('assets/img/header/surabaya.png') }}" alt="Bootstrap" width="105px">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -48,15 +44,6 @@
                             <a class="nav-link"
                                 style="font-size: 20px;
                                     font-weight: 500;"
-<<<<<<< HEAD
-                                href="{{ route('event') }}">Event</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                style="font-size: 20px;
-                                    font-weight: 500;"
-=======
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
                                 href="{{ route('logout') }}">Logout</a>
                         </li>
                     </ul>
@@ -71,11 +58,7 @@
         <div class="container">
             <div class="d-flex justify-content-end mb-2">
                 <a href="{{ route('tambahDestinasi') }}" class="btn btn-primary" role="button"><i
-<<<<<<< HEAD
-                        class="fa-solid fa-plus"></i>TAMBAH</a></td>
-=======
                         class="fa-solid fa-plus"></i> TAMBAH</a></td>
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
             </div>
             @if (session('gagal'))
                 <div class="alert alert-danger">
@@ -99,16 +82,12 @@
                         <th scope="col">Image1</th>
                         <th scope="col">Image2</th>
                         <th scope="col">Image3</th>
-<<<<<<< HEAD
-                        {{-- <th scope="col"></th> --}}
-=======
                         <th scope="col"></th>
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
                     </tr>
                 </thead>
 
                 <tbody>
-                    @php
+                    {{-- @php
                         $no = 1;
                     @endphp
                     @foreach ($destinasi as $dest)
@@ -143,7 +122,7 @@
                         </tr>
                     @endforeach
 
-                </tbody>
+                </tbody> --}}
             </table>
         </div>
     </section>

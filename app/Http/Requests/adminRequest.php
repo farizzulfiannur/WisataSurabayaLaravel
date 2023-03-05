@@ -11,7 +11,11 @@ class adminRequest extends FormRequest
      *
      * @return bool
      */
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
 
     /**
      * Get the validation rules that apply to the request.
@@ -29,6 +33,7 @@ class adminRequest extends FormRequest
             'image_task_1.required' => 'Tambahkan Foto',
         ];
     }
+<<<<<<< HEAD
 
     public function msgEvent()
     {
@@ -42,6 +47,8 @@ class adminRequest extends FormRequest
         ];
     }
 
+=======
+>>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
     public function rules()
     {
         return [
@@ -50,12 +57,15 @@ class adminRequest extends FormRequest
             'dest_location' => 'required',
             'dest_desc' => 'required',
             'image_task_1' => 'required',
+<<<<<<< HEAD
             'event_name' => 'required',
             'event_location' => 'required',
             'tanggal_mulai' => 'required',
             'tanggal_akhir' => 'required',
             'penyelenggara' => 'required',
             'event_desc' => 'required',
+=======
+>>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
         ];
     }
 }
