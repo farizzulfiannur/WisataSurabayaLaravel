@@ -15,11 +15,7 @@
     <section class="navigasi mb-5">
         <nav class="navbar navbar-expand-lg box-navbar" data-bs-theme="white">
             <div class="container p-2">
-<<<<<<< HEAD
-                <a class="navbar-brand ms-3" href="{{route('navigasi')}}">
-=======
                 <a class="navbar-brand ms-3" href="#">
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
                     <img src="{{ asset('assets/img/header/surabaya.png') }}" alt="Bootstrap" width="105px">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -40,13 +36,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="font-size: 20px;
-<<<<<<< HEAD
-                                    font-weight: 500;" href="{{ route('event') }}">Event</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="font-size: 20px;
-=======
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
                                     font-weight: 500;" href="{{ route('logout') }}">Logout</a>
                         </li>
                     </ul>
