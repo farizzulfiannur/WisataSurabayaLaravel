@@ -10,12 +10,6 @@ body {
 .box-navbar {
     box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
 }
-.navbar-transparant {
-    position: absolute;
-    width: 100%;
-    background-color: transparent;
-    box-shadow: none;
-}
 /* End Navbar */
 
 .font-weight-bold {

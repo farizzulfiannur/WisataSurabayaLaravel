@@ -15,8 +15,8 @@
             </div>
             @if (session('gagal'))
                 <div class="alert alert-danger">
-                    <b> Oops! </b> {{ session('error') }}
-                </div>   
+                    <b> Oops! </b> {{ session('gagal') }}
+                </div>      
             @endif
 
             @if (session('berhasil'))

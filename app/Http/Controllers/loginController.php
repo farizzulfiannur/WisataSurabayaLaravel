@@ -24,12 +24,12 @@ class loginController extends Controller
             $role = Auth::user()->role;
             if($request->user()->role == User::ROLE_ADMIN){
                 return redirect()->route('admin');
-            }else{
+            }else {
                 return redirect()->route('contri');
             }
         }else{
             // dd('Gagal Login');
-            Session::flash('error','Gagal Login');
+            Session::flash('gagal','Email / Password Anda Salah');
             return redirect()->route('login');
         }
     }
