@@ -37,7 +37,6 @@ class adminController extends Controller
         return view('admin.destinasi.home', compact('destinasi'));
     }
 
-<<<<<<< HEAD
     public function index_event()
     {
         $user = Auth::user()->id;
@@ -47,21 +46,16 @@ class adminController extends Controller
         return view('admin.event.home', compact('event'));
     }
 
-=======
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
     public function tambahDestinasi()
     {
         return view('admin.destinasi.tambah');
     }
 
-<<<<<<< HEAD
     public function tambahEvent()
     {
         return view ('admin.event.tambah');
     }
 
-=======
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
     public function store(adminRequest $request)
     {
         $image_path_1 = $request->file('image_task_1')->store('image', 'public');
@@ -95,32 +89,6 @@ class adminController extends Controller
         }
     }
 
-<<<<<<< HEAD
-    public function store_event(adminRequest $request)
-    {
-        $image_path_4 = $request->file('image_task_4')->store('image', 'public');
-        $image_path_5 = $request->file('image_task_5')->store('image', 'public');
-        $image_path_6 = $request->file('image_task_6')->store('image', 'public');
-
-        $photo_ev = event_photo::create([
-            'event_photo1' => $image_path_4,
-            'event_photo2' => $image_path_5,
-            'event_photo3' => $image_path_6,
-        ]);
-
-        $data_event = event::create([
-            'event_id' => $photo_ev->id,
-            'event_name' => $request->event_name,
-            'event_location' => $request->event_location,
-            'tanggal_mulai' => $request->tanggal_mulai,
-            'tanggal_akhir' => $request->tanggal_akhir,
-            'penyelenggara' => $request->penyelenggara,
-            'event_desc' => $request->event_desc,
-        ]);
-    }
-
-=======
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
     public function edit($id){
         $destinasi = destination::find($id);
         $photo = dest_photo::find($id);
@@ -128,15 +96,12 @@ class adminController extends Controller
         return view('admin.destinasi.edit',compact('destinasi','photo'));
     }
 
-<<<<<<< HEAD
     public function edit_event($id){
         $event = event::find($id);
         $event_photo = event_photo::find($id);
         return view('admin.event.edit',compact('event','photo'));
     }
 
-=======
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
     public function delete($id)
     {
         $data = destination::destroy($id);

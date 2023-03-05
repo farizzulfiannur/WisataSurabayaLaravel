@@ -3,11 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<<<<<<< HEAD
-    <title>LOCALHOST</title>
-=======
     <title>Bootstrap demo</title>
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
     {{-- Bootstrap CDN --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </head>
@@ -19,23 +15,14 @@
             </div>
             @if (session('gagal'))
                 <div class="alert alert-danger">
-<<<<<<< HEAD
-                    <b> Oops! </b> {{ session('error') }}
-                </div>
-=======
                     <b> Oops! </b> {{ session('gagal') }}
                 </div>      
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
             @endif
 
             @if (session('berhasil'))
                 <div class="alert alert-success">
                     <b> Hooray! </b> {{ session('berhasil') }}
-<<<<<<< HEAD
-                </div>
-=======
                 </div>    
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
             @endif
 
             <form action="{{ route('prosesLogin') }}" method="POST">
@@ -51,11 +38,7 @@
                             <input type="password" name="password" class="form-control" placeholder="Masukkan Password" required>
                         </div>
                     </div>
-<<<<<<< HEAD
-
-=======
     
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
                     <div class="row">
                         <div class="col-8 mt-4">
                             <button type="submit" class="btn btn-primary">Login</button>
@@ -68,8 +51,4 @@
     {{-- Bootstrap CDN --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
