@@ -4,13 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\adminRequest;
 use App\Models\dest_photo;
-<<<<<<< HEAD
-use App\Models\event_photo;
 use App\Models\destination;
-use App\Models\event;
-=======
-use App\Models\destination;
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
 use App\Services\admin\adminServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,10 +23,7 @@ class adminController extends Controller
     {
         $user = Auth::user()->id;
         $destinasi = destination::join('dest_photos', 'destinations.dest_id', '=', 'dest_photos.id')->get();
-<<<<<<< HEAD
         // $event = event::join('event_photos', 'events.event_id', '=', 'event_photos.id')->get();
-=======
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
         // dd($destinasi);
         return view('admin.destinasi.home', compact('destinasi'));
     }
@@ -113,7 +104,6 @@ class adminController extends Controller
             return redirect()->route('destinasi');
         }
     }
-<<<<<<< HEAD
 
     public function delete_event($id){
         $data = event::destroy($id);
@@ -125,6 +115,4 @@ class adminController extends Controller
             return redirect()->route('event');
         }
     }
-=======
->>>>>>> ade34ea82bbfe3cee5dd489f13c0aa23a43f19fe
 }
