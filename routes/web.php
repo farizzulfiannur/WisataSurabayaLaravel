@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[homeController::class,'home'])->name('home');
+Route::get('/destination',[homeController::class,'destinasi'])->name('public-destinasi');
 
 // Proses Registrasi
 Route::get('/login',[loginController::class,'login'])->name('login');
