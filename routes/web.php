@@ -39,7 +39,7 @@ Route::get('admin/destinasi/tambah',[adminController::class,'tambahDestinasi'])-
 Route::post('admin/destinasi/store',[adminController::class,'store'])->name('storeDestinasi')->middleware('auth','admin');
 Route::get('admin/destinasi/delete/{id}',[adminController::class,'delete'])->name('deleteDestinasi')->middleware('auth','admin');
 Route::get('admin/destinasi/edit/{id}',[adminController::class,'edit'])->name('editDestinasi')->middleware('auth','admin');
-
+Route::post('admin/destinasi/update/{id}',[adminController::class,'update'])->name('updateDestinasi')->middleware('auth','admin');
 
 //Contri 
 Route::get('contri',[homeController::class,'contri'])->name('contri')->middleware('auth','contri');

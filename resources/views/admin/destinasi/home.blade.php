@@ -79,9 +79,7 @@
                         <th scope="col">Category</th>
                         <th scope="col">Location</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Image1</th>
-                        <th scope="col">Image2</th>
-                        <th scope="col">Image3</th>
+                        <th scope="col"> Image </th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -97,13 +95,16 @@
                             <td>{{ $dest->dest_category }}</td>
                             <td>{{ $dest->dest_location }}</td>
                             <td>{{ $dest->dest_desc }}</td>
-                            <td><img src="{{ asset('storage/' . $dest->dest_photo1) }}" alt="image" height="40px"
-                                    width="40px"></td>
-                            <td><img src="{{ asset('storage/' . $dest->dest_photo2) }}" alt="image" height="40px"
-                                    width="40px"></td>
-                            <td><img src="{{ asset('storage/' . $dest->dest_photo3) }}" alt="image" height="40px"
-                                    width="40px"></td>
-
+                            <td>
+                                <div class="row">
+                                    @foreach ($photodests as $photo )
+                                    <div class="col">
+                                        <td><img src="{{ asset('destinasi/' . $photo->destphoto) }}" alt="image" height="40px"
+                                            width="40px"></td>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </td>
                             <td>
                                 <div class="row">
                                     <div class="col-5">
