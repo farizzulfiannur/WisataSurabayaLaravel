@@ -24,9 +24,9 @@ class adminController extends Controller
     {
         $user = Auth::user()->id;
         $destinasi = destination::all();
-        $photodests = Photodest::all();
+        // $photodests = Photodest::all();
         // dd($photodests);
-        return view('admin.destinasi.home', compact('destinasi','photodests'));
+        return view('admin.destinasi.home', compact('destinasi'));
     }
 
     public function tambahDestinasi()
@@ -61,12 +61,12 @@ class adminController extends Controller
     public function edit($id)
     {
         $destinasi = destination::findOrFail($id);
-        $photodests = Photodest::findOrFail($id);
+        // $photodests = Photodest::findOrFail($id);
         // $photo = dest_photo::find($id);
         // $posts=Post::findOrFail($id);
         // return view('edit')->with('posts',$posts);
         // dd($destinasi,$photo);
-        return view('admin.destinasi.edit', compact('destinasi','photodests'));
+        return view('admin.destinasi.edit', compact('destinasi'));
     }
 
     public function update(Request $request, $id)
@@ -78,18 +78,25 @@ class adminController extends Controller
             'dest_location' => $request->dest_location,
             'dest_desc' => $request->dest_desc,
         ]);
-        if ($request->hasFile("images")) {
-            $files = $request->file("images");
-            dd($files);
-            foreach ($files as $file) {
-                $photodest = Photodest::findOrFail($id);
-                $imageName = time() . '_' . $file->getClientOriginalName();
-                $request["destination_id"] = $id;
-                $request["destphoto"] = $imageName;
-                $file->move(\public_path("/destinasi"), $imageName);
-                Photodest::update($request->all());
+
+        $photodests = $destinasi->photodests;
+        foreach ($photodests as $photo) {
+            if (!$photo) {
+                continue;
+            }
+            $img_id = 'image_' . $photo->id;
+            
+            if ($request->has($img_id)) {
+                $newPhoto = $request[$img_id];
+                $photoDest = Photodest::findOrFail($photo->id);
+                $imageName = time() . '_' . $newPhoto->getClientOriginalName();
+                $newPhoto->move(\public_path("/destinasi"), $imageName);
+                $photoDest->update([
+                    'destphoto' => $imageName,
+                ]);
             }
         }
+
         return redirect()->route('destinasi');
     }
 

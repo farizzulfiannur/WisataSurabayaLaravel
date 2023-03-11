@@ -96,14 +96,10 @@
                             <td>{{ $dest->dest_location }}</td>
                             <td>{{ $dest->dest_desc }}</td>
                             <td>
-                                <div class="row">
-                                    @foreach ($photodests as $photo )
-                                    <div class="col">
-                                        <td><img src="{{ asset('destinasi/' . $photo->destphoto) }}" alt="image" height="40px"
-                                            width="40px"></td>
-                                    </div>
+                                    @foreach ($dest->photodests as $photo )
+                                        <img src="{{ asset('destinasi/' . $photo->destphoto) }}" alt="image" height="40px"
+                                            width="40px">
                                     @endforeach
-                                </div>
                             </td>
                             <td>
                                 <div class="row">
