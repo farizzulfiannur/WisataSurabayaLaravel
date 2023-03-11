@@ -196,7 +196,7 @@
             style="height: 100vh; object-fit: cover;">
             <source src="assets/video/surabaya.mp4" type="video/mp4">
         </video>
-    </div> 
+    </div>
 
 
     <!-- Isi Content -->

@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\adminController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\contriController;
+=======
+>>>>>>> Stashed changes
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\logoutController;
@@ -19,7 +22,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< Updated upstream
 Route::get('/',[homeController::class,'home'])->name('home');
+=======
+// Home Route
+Route::get('/',[homeController::class, 'home'])->name('home');
+>>>>>>> Stashed changes
 
 // Proses Registrasi
 Route::get('/login',[loginController::class,'login'])->name('login');
@@ -28,9 +36,16 @@ Route::post('/register/proses',[registerController::class,'prosesRegister'])->na
 
 // Proses Login dengan admin atau contri
 Route::post('/login/proses',[loginController::class,'prosesLogin'])->name('prosesLogin');
+<<<<<<< Updated upstream
 route::get('logout',[logoutController::class,'logout'])->name('logout');
 
 // Admin 
+=======
+Route::get('contri',[homeController::class,'contri'])->name('contri')->middleware('auth','contri');
+route::get('logout',[logoutController::class,'logout'])->name('logout');
+
+// Admin
+>>>>>>> Stashed changes
 Route::get('admin',[homeController::class,'admin'])->name('admin')->middleware('auth','admin');
 
 // Destinasi
@@ -40,9 +55,18 @@ Route::post('admin/destinasi/store',[adminController::class,'store'])->name('sto
 Route::get('admin/destinasi/delete/{id}',[adminController::class,'delete'])->name('deleteDestinasi')->middleware('auth','admin');
 Route::get('admin/destinasi/edit/{id}',[adminController::class,'edit'])->name('editDestinasi')->middleware('auth','admin');
 
+<<<<<<< Updated upstream
 
 //Contri 
 Route::get('contri',[homeController::class,'contri'])->name('contri')->middleware('auth','contri');
 
 //Destinasi 
 Route::get('contri/destinasi',[contriController::class,'index'])->name('contridestinasi')->middleware('auth','contri');
+=======
+// Event
+Route::get('admin/event', [adminController::class, 'index_event'])->name('event')->middleware('auth', 'admin');
+Route::get('admin/event/tambah', [adminController::class, 'tambahEvent'])->name('tambahEvent')->middleware('auth', 'admin');
+Route::post('admin/event/store', [adminController::class, 'store_event'])->name('storeEvent')->middleware('auth', 'admin');
+Route::get('admin/event/delete/{id}', [adminController::class, 'delete_event'])->name('deleteEvent')->middleware('auth', 'admin');
+Route::get('admin/event/edit/{id}', [adminController::class, 'edit_Event'])->name('editEvent')->middleware('auth', 'admin');
+>>>>>>> Stashed changes

@@ -11,7 +11,10 @@ class adminRequest extends FormRequest
      *
      * @return bool
      */
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
 
     /**
      * Get the validation rules that apply to the request.
@@ -27,8 +30,29 @@ class adminRequest extends FormRequest
             'dest_location.required' => 'Isi Form Lokasi',
             'dest_desc.required' => 'Tambahkan Deskripsi',
             'image_task_1.required' => 'Tambahkan Foto',
+<<<<<<< Updated upstream
         ];
     }
+=======
+            'event_name.required' => 'Isi Nama Event',
+            'event_location.required' => 'Isi Lokasi',
+            'tanggal_mulai.required' => 'Isi tanggal mulai',
+            'tanggal_akhir.required' => 'Isi tanggal selesai',
+            'penyelenggara.required' => 'Isi Penyelenggara',
+            'event_desc.required' => 'Isi Deskripsi',
+        ];
+    }
+
+    //Tambah file eventRequest.php
+
+    // public function msgEvent()
+    // {
+    //     return [
+
+    //     ];
+    // }
+
+>>>>>>> Stashed changes
     public function rules()
     {
         return [
@@ -37,6 +61,15 @@ class adminRequest extends FormRequest
             'dest_location' => 'required',
             'dest_desc' => 'required',
             'image_task_1' => 'required',
+<<<<<<< Updated upstream
+=======
+            'event_name' => 'required',
+            'event_location' => 'required',
+            'tanggal_mulai' => 'required',
+            'tanggal_akhir' => 'required',
+            'penyelenggara' => 'required',
+            'event_desc' => 'required',
+>>>>>>> Stashed changes
         ];
     }
 }
