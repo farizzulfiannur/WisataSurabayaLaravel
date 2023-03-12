@@ -22,6 +22,10 @@
 
 
             <div class="col-lg-3">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b23fdb3d960eb38c6da14f597fe6dce946d7aa1
             </div>
 
 
@@ -55,6 +59,7 @@
                             <label for="dest_desc" class="form-label">Deskripsi</label>
                             <textarea class="form-control" name="dest_desc" id="dest_desc" rows="3">{{ $destinasi->dest_desc }}</textarea>
                         </div>
+<<<<<<< HEAD
                         <div class="mb-3">
                             <p for=""> Cover : </p>
                             <img src="{{ asset('/cover/' . $destinasi->dest_cover) }}" class="img-responsive"
@@ -65,12 +70,31 @@
                         @if (count($destinasi->photodests) > 0)
                             <p>Images:</p>
                             @foreach ($destinasi->photodests as $img)
+=======
+
+                        {{-- <label class="m-2">Images</label>
+                        <input type="file" id="input-file-now-custom-3" class="form-control m-2" name="images[]"
+                            multiple> --}}
+
+                        @if (count($destinasi->photodests) > 0)
+                            <p>Images:</p>
+                            @foreach ($destinasi->photodests as $img)
+                                {{-- <form action="/deleteimage/{{ $img->id }}" method="post">
+                            <button class="btn text-danger">X</button>
+                            @csrf
+                            @method('delete')
+                        </form> --}}
+>>>>>>> 7b23fdb3d960eb38c6da14f597fe6dce946d7aa1
                                 <img src="{{ asset('/destinasi/' . $img->destphoto) }}" class="img-responsive"
                                     style="max-height: 100px; max-width: 100px;" alt="" srcset="">
                                 <input type="file" id="input-file-now-custom-3" class="form-control m-2"
                                     name="image_{{ $img->id }}">
                             @endforeach
                         @endif
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b23fdb3d960eb38c6da14f597fe6dce946d7aa1
                         <button type="submit" class="btn btn-danger mt-3 ">Submit</button>
                     </form>
                 </div>
