@@ -52,6 +52,10 @@
                         <textarea class="form-control" name="dest_desc" id="dest_desc" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
+                        <label for="formFile" class="form-label">Cover</label>
+                        <input class="form-control" name="cover" type="file" id="formFile" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="formFile" class="form-label">Input Gambar</label>
                         <input class="form-control" name="images[]" type="file" id="formFile" multiple required>
                     </div>

@@ -124,7 +124,7 @@
                             </a>
                         </li>
                         <li class="">
-                            <a class="font-weight-bold" href="{{ route('destinasi') }}">
+                            <a class="font-weight-bold" href="{{ route('publicDestinasi') }}">
                                 Destinasi
                             </a>
                         </li>

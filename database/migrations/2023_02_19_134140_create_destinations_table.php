@@ -18,6 +18,7 @@ class CreateDestinationsTable extends Migration
             $table->string('dest_name');
             $table->string('dest_category');
             $table->string('dest_location');
+            $table->string('dest_cover');
             $table->text('dest_desc');
             $table->timestamps();
         });

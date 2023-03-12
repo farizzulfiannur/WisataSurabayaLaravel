@@ -19,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Public
 Route::get('/',[homeController::class,'home'])->name('home');
+Route::get('/dest',[homeController::class,'destinasi'])->name('publicDestinasi');
+
 
 // Proses Registrasi
 Route::get('/login',[loginController::class,'login'])->name('login');
@@ -32,7 +35,6 @@ route::get('logout',[logoutController::class,'logout'])->name('logout');
 
 // Admin 
 Route::get('admin',[homeController::class,'admin'])->name('admin')->middleware('auth','admin');
-
 // Destinasi
 Route::get('admin/destinasi',[adminController::class,'index'])->name('destinasi')->middleware('auth','admin');
 Route::get('admin/destinasi/tambah',[adminController::class,'tambahDestinasi'])->name('tambahDestinasi')->middleware('auth','admin');
@@ -40,6 +42,8 @@ Route::post('admin/destinasi/store',[adminController::class,'store'])->name('sto
 Route::get('admin/destinasi/delete/{id}',[adminController::class,'delete'])->name('deleteDestinasi')->middleware('auth','admin');
 Route::get('admin/destinasi/edit/{id}',[adminController::class,'edit'])->name('editDestinasi')->middleware('auth','admin');
 Route::post('admin/destinasi/update/{id}',[adminController::class,'update'])->name('updateDestinasi')->middleware('auth','admin');
+Route::delete('admin/destinasi/delete/{id}',[adminController::class,'delete'])->name('deleteDestinasi')->middleware('auth','admin');
+
 
 //Contri 
 Route::get('contri',[homeController::class,'contri'])->name('contri')->middleware('auth','contri');

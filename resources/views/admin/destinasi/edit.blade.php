@@ -22,25 +22,14 @@
 
 
             <div class="col-lg-3">
-                @if (count($destinasi->photodests) > 0)
-                    <p>Images:</p>
-                    @foreach ($destinasi->photodests as $img)
-                        {{-- <form action="/deleteimage/{{ $img->id }}" method="post">
-                            <button class="btn text-danger">X</button>
-                            @csrf
-                            @method('delete')
-                        </form> --}}
-                        <img src="{{ asset('/destinasi/' . $img->destphoto) }}" class="img-responsive"
-                            style="max-height: 100px; max-width: 100px;" alt="" srcset="">
-                    @endforeach
-                @endif
             </div>
 
 
             <div class="col-lg-6">
                 <h3 class="text-center text-primary"><b>Update Destinasi</b> </h3>
                 <div class="form-group">
-                    <form action="{{ route('updateDestinasi' , [$destinasi->id]) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('updateDestinasi', [$destinasi->id]) }}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="title">Nama Destinasi</label>
@@ -66,11 +55,22 @@
                             <label for="dest_desc" class="form-label">Deskripsi</label>
                             <textarea class="form-control" name="dest_desc" id="dest_desc" rows="3">{{ $destinasi->dest_desc }}</textarea>
                         </div>
-
-                        <label class="m-2">Images</label>
-                        <input type="file" id="input-file-now-custom-3" class="form-control m-2" name="images[]"
-                            multiple>
-
+                        <div class="mb-3">
+                            <p for=""> Cover : </p>
+                            <img src="{{ asset('/cover/' . $destinasi->dest_cover) }}" class="img-responsive"
+                                style="max-height: 100px; max-width: 100px;" alt="" srcset="">
+                            <input type="file" id="input-file-now-custom-3" class="form-control m-2"
+                                name="cover">
+                        </div>
+                        @if (count($destinasi->photodests) > 0)
+                            <p>Images:</p>
+                            @foreach ($destinasi->photodests as $img)
+                                <img src="{{ asset('/destinasi/' . $img->destphoto) }}" class="img-responsive"
+                                    style="max-height: 100px; max-width: 100px;" alt="" srcset="">
+                                <input type="file" id="input-file-now-custom-3" class="form-control m-2"
+                                    name="image_{{ $img->id }}">
+                            @endforeach
+                        @endif
                         <button type="submit" class="btn btn-danger mt-3 ">Submit</button>
                     </form>
                 </div>

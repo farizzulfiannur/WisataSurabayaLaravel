@@ -15,7 +15,8 @@ class CreatePhotodestsTable extends Migration
     {
         Schema::create('photodests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('destination_id')->constrained('destinations');
+            // $table->foreignId('destination_id')->constrained('destinations');
+            $table->foreignId("destination_id")->constraint("destinations")->onDelete("cascade");
             $table->string('destphoto');
             $table->timestamps();
         });

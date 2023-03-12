@@ -71,14 +71,15 @@
                     <b> Hooray! </b> {{ session('berhasil') }}
                 </div>
             @endif
-            <table class="table table-hover table-bordered table-responsive table-responsive-lg allign-middle mt-1">
+            <table class="table table-hover table-bordered table-responsive table-responsive-lg allign-middle mt-1" width="1000px" >
                 <thead>
                     <tr class="table-dark">
                         <th scope="col">No</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Category</th>
                         <th scope="col">Location</th>
-                        <th scope="col">Description</th>
+                        {{-- <th scope="col">Description</th> --}}
+                        <th scope="col">Cover</th>
                         <th scope="col"> Image </th>
                         <th scope="col"></th>
                     </tr>
@@ -94,29 +95,39 @@
                             <td>{{ $dest->dest_name }}</td>
                             <td>{{ $dest->dest_category }}</td>
                             <td>{{ $dest->dest_location }}</td>
-                            <td>{{ $dest->dest_desc }}</td>
+                            {{-- <td>{{ $dest->dest_desc }}</td> --}}
                             <td>
-                                <div class="row">
-                                    @foreach ($photodests as $photo )
-                                    <div class="col">
-                                        <td><img src="{{ asset('destinasi/' . $photo->destphoto) }}" alt="image" height="40px"
-                                            width="40px"></td>
-                                    </div>
-                                    @endforeach
-                                </div>
+                                    <img src="{{ asset('cover/' . $dest->dest_cover) }}" alt="image"
+                                        height="40px" width="40px">
+                            </td>
+                            <td>
+                                @foreach ($dest->photodests as $photo)
+                                    <img src="{{ asset('destinasi/' . $photo->destphoto) }}" alt="image"
+                                        height="40px" width="40px">
+                                @endforeach
                             </td>
                             <td>
                                 <div class="row">
-                                    <div class="col-5">
-                                        <a href="{{ route('editDestinasi', [$dest->id]) }}" class="btn btn-success" role="button"><i
-                                                class="fas fa-edit"></i></a>
+                                    <div class="col-3">
+                                        <a href="{{ route('editDestinasi', [$dest->id]) }}" class="btn btn-outline-success"
+                                            role="button"><i class="fas fa-edit"></i></a>
                                     </div>
-                                    <div class="col-5">
-                                        <a href="{{ route('deleteDestinasi', [$dest->id]) }}" class="btn btn-danger"
-                                            role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    <div class="col-3">
+                                        <form action=" {{ route('deleteDestinasi', [$dest->id]) }} ">
+                                            <button class="btn btn-outline-danger"
+                                                onclick="return confirm('Apakah anda yakin ingin menghapus?');"
+                                                type="submit"><i class="fa fa-trash"
+                                                aria-hidden="true"></i></button>
+                                            @csrf
+                                            @method('delete')
+                                        </form>
+
+                                        {{-- <div class="col-5">
+                                            <a href="{{ route('deleteDestinasi', [$dest->id]) }}" class="btn btn-danger"
+                                                role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        </div> --}}
                                     </div>
                                     <div class="col-2">
-
                                     </div>
                                 </div>
                             </td>

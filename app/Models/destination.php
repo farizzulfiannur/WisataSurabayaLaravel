@@ -15,6 +15,7 @@ class destination extends Model
         'dest_category',
         'dest_location',
         'dest_desc',
+        'dest_cover'
     ];
 
     public function photodests(){

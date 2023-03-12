@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\destination;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,11 @@ class homeController extends Controller
     }
     public function contri(){
         return view('contri.home');
+    }
+
+    public function destinasi(){
+        $destinasi = destination::all();
+        return view('destinasi',compact('destinasi'));
     }
 
 }
