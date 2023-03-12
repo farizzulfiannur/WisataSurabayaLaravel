@@ -21,12 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 // Public
 Route::get('/',[homeController::class,'home'])->name('home');
-<<<<<<< HEAD
 Route::get('/dest',[homeController::class,'destinasi'])->name('publicDestinasi');
 
-=======
-Route::get('/destination',[homeController::class,'destinasi'])->name('public-destinasi');
->>>>>>> 7b23fdb3d960eb38c6da14f597fe6dce946d7aa1
 
 // Proses Registrasi
 Route::get('/login',[loginController::class,'login'])->name('login');

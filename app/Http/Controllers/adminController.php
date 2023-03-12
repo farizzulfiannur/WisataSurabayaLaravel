@@ -69,14 +69,6 @@ class adminController extends Controller
     public function edit($id)
     {
         $destinasi = destination::findOrFail($id);
-<<<<<<< HEAD
-=======
-        // $photodests = Photodest::findOrFail($id);
-        // $photo = dest_photo::find($id);
-        // $posts=Post::findOrFail($id);
-        // return view('edit')->with('posts',$posts);
-        // dd($destinasi,$photo);
->>>>>>> 7b23fdb3d960eb38c6da14f597fe6dce946d7aa1
         return view('admin.destinasi.edit', compact('destinasi'));
     }
 
@@ -100,23 +92,14 @@ class adminController extends Controller
             'dest_cover' => $destinasi->dest_cover,
         ]);
 
-<<<<<<< HEAD
         $photodests =  $destinasi->photodests;
-=======
-        $photodests = $destinasi->photodests;
->>>>>>> 7b23fdb3d960eb38c6da14f597fe6dce946d7aa1
         foreach ($photodests as $photo) {
             if (!$photo) {
                 continue;
             }
-<<<<<<< HEAD
 
             $img_id = 'image_' . $photo->id;
 
-=======
-            $img_id = 'image_' . $photo->id;
-            
->>>>>>> 7b23fdb3d960eb38c6da14f597fe6dce946d7aa1
             if ($request->has($img_id)) {
                 $newPhoto = $request[$img_id];
                 $photoDest = Photodest::findOrFail($photo->id);

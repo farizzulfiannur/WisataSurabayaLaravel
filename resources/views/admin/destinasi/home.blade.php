@@ -97,7 +97,6 @@
                             <td>{{ $dest->dest_location }}</td>
                             {{-- <td>{{ $dest->dest_desc }}</td> --}}
                             <td>
-<<<<<<< HEAD
                                     <img src="{{ asset('cover/' . $dest->dest_cover) }}" alt="image"
                                         height="40px" width="40px">
                             </td>
@@ -106,12 +105,6 @@
                                     <img src="{{ asset('destinasi/' . $photo->destphoto) }}" alt="image"
                                         height="40px" width="40px">
                                 @endforeach
-=======
-                                    @foreach ($dest->photodests as $photo )
-                                        <img src="{{ asset('destinasi/' . $photo->destphoto) }}" alt="image" height="40px"
-                                            width="40px">
-                                    @endforeach
->>>>>>> 7b23fdb3d960eb38c6da14f597fe6dce946d7aa1
                             </td>
                             <td>
                                 <div class="row">
