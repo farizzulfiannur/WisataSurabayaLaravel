@@ -23,28 +23,13 @@ class adminController extends Controller
     {
         $user = Auth::user()->id;
         $destinasi = destination::join('dest_photos', 'destinations.dest_id', '=', 'dest_photos.id')->get();
-        // $event = event::join('event_photos', 'events.event_id', '=', 'event_photos.id')->get();
         // dd($destinasi);
         return view('admin.destinasi.home', compact('destinasi'));
-    }
-
-    public function index_event()
-    {
-        $user = Auth::user()->id;
-        $event = event::join('event_photo', 'events.event_id', '=', 'event_photos.id')->get(); 
-        //Masih dipertanyakan
-
-        return view('admin.event.home', compact('event'));
     }
 
     public function tambahDestinasi()
     {
         return view('admin.destinasi.tambah');
-    }
-
-    public function tambahEvent()
-    {
-        return view ('admin.event.tambah');
     }
 
     public function store(adminRequest $request)
@@ -87,12 +72,6 @@ class adminController extends Controller
         return view('admin.destinasi.edit',compact('destinasi','photo'));
     }
 
-    public function edit_event($id){
-        $event = event::find($id);
-        $event_photo = event_photo::find($id);
-        return view('admin.event.edit',compact('event','photo'));
-    }
-
     public function delete($id)
     {
         $data = destination::destroy($id);
@@ -102,17 +81,6 @@ class adminController extends Controller
         }else{
             Session::flash('berhasil','Delete Task Berhasil');
             return redirect()->route('destinasi');
-        }
-    }
-
-    public function delete_event($id){
-        $data = event::destroy($id);
-        $data_event = event_photo::destroy($id);
-        if (!$data && !$data_event){
-            Session::flash('error','Delete Event Gagal');
-        } else {
-            Session::flash('berhasil','Delete Event Berhasil');
-            return redirect()->route('event');
         }
     }
 }
