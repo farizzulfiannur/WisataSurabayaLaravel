@@ -31,44 +31,52 @@
                     @endif
                     <div class="form-group mb-3">
                         <label for="title">Nama Event</label>
-                        <input type="text" name="event_name" id="title" class="form-control">
+                        <input type="text" name="event_name" value="{{ $event->event_name }}" id="title" class="form-control">
                     </div>
                     {{-- <div class="form-group mb-3">
                         <label for="title">Destinasi Kategori</label>
                         <select name="dest_category" class="form-select" aria-label="Default select">
                             <option selected>Pilih Kategori</option>
-                            <option value="Pusat Perbelanjaan"> Pusat Perbelanjaan</option>
-                            <option value="Monumen"> Monumen</option>
-                            <option value="Religi"> Religi</option>
-                            <option value="Nature and Outdoor"> Nature and Outdoor</option>
+                            <option> Pusat Perbelanjaan</option>
+                            <option> Monumen</option>
+                            <option > Religi</option>
+                            <option > Nature and Outdoor</option>
                         </select>
                     </div> --}}
                     <div class="form-group mb-3">
                         <label for="title">Lokasi Event</label>
-                        <input type="text" name="event_location" id="title" class="form-control">
+                        <input type="text" value="{{ $event->event_location }}" name="event_location" id="title" class="form-control">
                     </div>
                     <div class="form-group mb-3">
                         <label for="title">Tanggal Mulai</label>
-                        <input type="text" name="tanggal_mulai" id="title" class="form-control">
+                        <input type="text" value="{{ $event->tanggal_mulai }}" name="tanggal_mulai" id="title" class="form-control">
                     </div>
                     <div class="form-group mb-3">
                         <label for="title">Tanggal Akhir</label>
-                        <input type="text" name="tanggal_akhir" id="title" class="form-control">
+                        <input type="text" value="{{ $event->tanggal_akhir }}" name="tanggal_akhir" id="title" class="form-control">
                     </div>
                     <div class="form-group mb-3">
                         <label for="title">Penyelenggara</label>
-                        <input type="text" name="penyelenggara" id="title" class="form-control">
+                        <input type="text" value="{{ $event->penyelenggara }}" name="penyelenggara" id="title" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="dest_desc" class="form-label">Deskripsi</label>
-                        <textarea class="form-control" name="dest_desc" id="dest_desc" rows="3"></textarea>
+                        <label for="event_desc" class="form-label">Deskripsi</label>
+                        <textarea class="form-control" name="event_desc" id="event_desc" rows="3">{{ $event->event_desc }}</textarea>
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Input Gambar</label>
-                        <input class="form-control" name="image[]" type="file" id="formFile" multiple required>
+                        <input class="form-control" value="{{ $photo->event_photo1 }}" name="image_task_4" type="file" id="formFile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Input Gambar</label>
+                        <input class="form-control" value="{{ $photo->event_photo2 }}" name="image_task_5" type="file" id="formFile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Input Gambar</label>
+                        <input class="form-control" value="{{ $photo->event_photo3 }}" name="image_task_6" type="file" id="formFile">
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">Tambah</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                 </form>
             </div>

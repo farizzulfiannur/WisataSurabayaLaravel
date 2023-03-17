@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[homeController::class,'home'])->name('home');
+Route::get('/destination', [homeController::class,'destinasi'])->name('public-destinasi');
+Route::get('/event', [homeController::class,'event'])->name('public-event');
 
 // Proses Registrasi
 Route::get('/login',[loginController::class,'login'])->name('login');
@@ -41,6 +43,7 @@ Route::get('admin/destinasi',[adminController::class,'index_dest'])->name('desti
 Route::get('admin/destinasi/tambah',[adminController::class,'add_dest'])->name('addDestinasi')->middleware('auth','admin');
 Route::post('admin/destinasi/store',[adminController::class,'store_dest'])->name('storeDestinasi')->middleware('auth','admin');
 Route::get('admin/destinasi/delete/{id}',[adminController::class,'delete_dest'])->name('deleteDestinasi')->middleware('auth','admin');
+// Route::get('admin/destinasi/edit/{id}',[adminController::class,'edit'])->name('editDestinasi')->middleware('auth','admin');
 Route::get('admin/destinasi/edit/{id}',[adminController::class,'edit_dest'])->name('editDestinasi')->middleware('auth','admin');
 
 // Event

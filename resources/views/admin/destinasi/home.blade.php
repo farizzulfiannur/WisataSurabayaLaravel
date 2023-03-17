@@ -44,12 +44,6 @@
                             <a class="nav-link"
                                 style="font-size: 20px;
                                     font-weight: 500;"
-                                href="{{ route('event') }}">Event</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                style="font-size: 20px;
-                                    font-weight: 500;"
                                 href="{{ route('logout') }}">Logout</a>
                         </li>
                     </ul>
@@ -63,7 +57,7 @@
         </div>
         <div class="container">
             <div class="d-flex justify-content-end mb-2">
-                <a href="{{ route('addDestinasi') }}" class="btn btn-primary" role="button"><i
+                <a href="{{ route('add_dest') }}" class="btn btn-primary" role="button"><i
                         class="fa-solid fa-plus"></i> TAMBAH</a></td>
             </div>
             @if (session('gagal'))
@@ -85,9 +79,7 @@
                         <th scope="col">Category</th>
                         <th scope="col">Location</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Image1</th>
-                        <th scope="col">Image2</th>
-                        <th scope="col">Image3</th>
+                        <th scope="col"> Image </th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -103,21 +95,20 @@
                             <td>{{ $dest->dest_category }}</td>
                             <td>{{ $dest->dest_location }}</td>
                             <td>{{ $dest->dest_desc }}</td>
-                            <td><img src="{{ asset('storage/' . $dest->dest_photo1) }}" alt="image" height="40px"
-                                    width="40px"></td>
-                            <td><img src="{{ asset('storage/' . $dest->dest_photo2) }}" alt="image" height="40px"
-                                    width="40px"></td>
-                            <td><img src="{{ asset('storage/' . $dest->dest_photo3) }}" alt="image" height="40px"
-                                    width="40px"></td>
-
+                            <td>
+                                    @foreach ($dest->photodests as $photo )
+                                        <img src="{{ asset('destinasi/' . $photo->destphoto) }}" alt="image" height="40px"
+                                            width="40px">
+                                    @endforeach
+                            </td>
                             <td>
                                 <div class="row">
                                     <div class="col-5">
-                                        <a href="{{ route('editDestinasi', [$dest->id]) }}" class="btn btn-success" role="button"><i
+                                        <a href="{{ route('edit_dest', [$dest->id]) }}" class="btn btn-success" role="button"><i
                                                 class="fas fa-edit"></i></a>
                                     </div>
                                     <div class="col-5">
-                                        <a href="{{ route('deleteDestinasi', [$dest->id]) }}" class="btn btn-danger"
+                                        <a href="{{ route('delete_dest', [$dest->id]) }}" class="btn btn-danger"
                                             role="button"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="col-2">

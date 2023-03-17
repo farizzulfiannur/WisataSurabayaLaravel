@@ -15,9 +15,8 @@ class CreateDestPhotosTable extends Migration
     {
         Schema::create('dest_photos', function (Blueprint $table) {
             $table->id();
-            $table->string('dest_photo1');
-            $table->string('dest_photo2');
-            $table->string('dest_photo3');
+            $table->foreignId('destination_id')->constrained('destinations');
+            $table->string('destinasi_photo');
             $table->timestamps();
         });
     }

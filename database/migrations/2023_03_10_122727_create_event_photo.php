@@ -15,9 +15,8 @@ class CreateEventPhoto extends Migration
     {
         Schema::create('event_photo', function (Blueprint $table) {
             $table->id();
-            $table->string('event_photo1');
-            $table->string('event_photo2');
-            $table->string('event_photo3');
+            $table->foreignId('event_id')->constrained( 'events');
+            $table->string('event_photo');
             $table->timestamps();
         });
     }
