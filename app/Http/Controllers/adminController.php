@@ -9,6 +9,7 @@ use App\Models\Photodest;
 use App\Services\admin\adminServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -24,9 +25,7 @@ class adminController extends Controller
     public function index()
     {
         $user = Auth::user()->id;
-        $destinasi = destination::all();
-        // $photodests = Photodest::all();
-        // dd($photodests);
+        $destinasi = destination::paginate(2);
         return view('admin.destinasi.home', compact('destinasi'));
     }
 
@@ -38,7 +37,7 @@ class adminController extends Controller
     public function store(Request $request)
     {
 
-        if($request->hasFile('cover')){
+        if ($request->hasFile('cover')) {
             $file = $request->file("cover");
             $imageName = time() . '_' . $file->getClientOriginalName();
             $file->move(\public_path("cover/"), $imageName);
@@ -114,17 +113,32 @@ class adminController extends Controller
         return redirect()->route('destinasi');
     }
 
-    public function delete($id){
-        $destination=destination::findOrFail($id);
-        $photodests=Photodest::where("destination_id",$destination->id)->get();
+    public function delete($id)
+    {
+        $destination = destination::findOrFail($id);
+        $photodests = Photodest::where("destination_id", $destination->id)->get();
 
         foreach ($photodests as $photo) {
-            if(File::exists('destinasi/'. $photo->destphoto)){
-                File::delete("destinasi/".$photo->destphoto);
+            if (File::exists('destinasi/' . $photo->destphoto)) {
+                File::delete("destinasi/" . $photo->destphoto);
             }
         }
         // destination::destroy($id);
         $destination->delete();
         return back();
+    }
+
+    public function search(Request $request)
+    {
+        if ($request->has('search')) {
+            $destinasi =  destination::where('dest_name', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('dest_category', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('dest_location', 'LIKE', '%' . $request->search . '%')
+            ->paginate(2);
+        } else {
+            $destinasi = destination::all();
+        }
+
+        return view('admin.destinasi.home', compact('destinasi'));
     }
 }

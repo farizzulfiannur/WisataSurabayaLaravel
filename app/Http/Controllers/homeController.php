@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class homeController extends Controller
 {
     public function home(){
-        return view('home');
+        $home = Auth::user();
+        return view('home', compact('home'));
     }
 
     // public function destinasi() {
@@ -26,8 +27,13 @@ class homeController extends Controller
     }
 
     public function destinasi(){
-        $destinasi = destination::all();
+        $destinasi = destination::paginate(9);
         return view('destinasi',compact('destinasi'));
+    }
+
+    public function detail($id){
+        $destinasi = destination::findOrFail($id);
+        return view('detaildestinasi', compact('destinasi'));
     }
 
 }

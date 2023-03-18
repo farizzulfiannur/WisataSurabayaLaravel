@@ -170,7 +170,8 @@
                         <div class="row">
                             @foreach ($destinasi as $dest)
                             <div class="col-4">
-                                    <div class="mb-2 mt-3 img-rounded-hover-effect">
+                                <a href="{{ route('detailDestinasi', [$dest->id]) }}" style="text-decoration: none; ">
+                                <div class="mb-2 mt-3 img-rounded-hover-effect">
                                         <img src="{{ asset('cover/' . $dest->dest_cover) }}" alt="Destinasi" class="img-fluid">
                                     </div>
                                     <div>
@@ -181,17 +182,19 @@
                                         style="border: 1.5px solid
                                         #6868ac; border-radius: 5px" />
                                     <div>
-                                        <h5 class='font-weight-bold'> {{ $dest->dest_name }} </h5>
-                                        <h6>
+                                        <h5 class='font-weight-bold' style="color: black"> {{ $dest->dest_name }} </h5>
+                                        <h6 style="color: black">
                                             <i
                                                 class="fa fa-fw
                                                 fa-map-marker-alt"></i>
                                             {{ $dest->dest_location }}
                                         </h6>
                                     </div>
+                                </a>
                                 </div>
                             @endforeach
                         </div>
+                        {{$destinasi->links('paginatecustom')}}
                     </div>
 
                 </div>
