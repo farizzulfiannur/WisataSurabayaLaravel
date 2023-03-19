@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\eventController;
 use App\Http\Controllers\contriController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
@@ -25,6 +26,9 @@ Route::get('/',[homeController::class,'home'])->name('home');
 Route::get('/dest',[homeController::class,'destinasi'])->name('publicDestinasi');
 Route::get('dest/detail/{id}',[homeController::class,'detail'])->name('detailDestinasi');
 Route::get('/dest/filter', [homeController::class,'filter'])->name('filterDestinasi');
+Route::get('/event',[homeController::class,'event'])->name('publicEvent');
+Route::get('event/detail/{id}',[homeController::class,'detail_event'])->name('detailEvent');
+Route::get('/event/filter', [homeController::class,'filter_event'])->name('filterEvent');
 
 // Proses Registrasi
 Route::get('/login',[loginController::class,'login'])->name('login');
@@ -46,6 +50,16 @@ Route::get('admin/destinasi/edit/{id}',[adminController::class,'edit'])->name('e
 Route::post('admin/destinasi/update/{id}',[adminController::class,'update'])->name('updateDestinasi')->middleware('auth','admin');
 Route::delete('admin/destinasi/delete/{id}',[adminController::class,'delete'])->name('deleteDestinasi')->middleware('auth','admin');
 Route::get('admin/destinasi/search',[adminController::class,'search'])->name('searchDestinasi');
+
+// Event
+Route::get('admin/event', [eventController::class, 'index_event'])->name('event');
+Route::get('admin/event/tambah',[eventController::class,'addEvent'])->name('addEvent')->middleware('auth','admin');
+Route::post('admin/event/store',[eventController::class,'store_event'])->name('store_event')->middleware('auth','admin');
+Route::get('admin/event/delete/{id}',[eventController::class,'delete_event'])->name('delete_event')->middleware('auth','admin');
+Route::get('admin/event/edit/{id}',[eventController::class,'edit_event'])->name('edit_event')->middleware('auth','admin');
+Route::post('admin/event/update/{id}',[eventController::class,'update_event'])->name('update_event')->middleware('auth','admin');
+Route::delete('admin/event/delete/{id}',[eventController::class,'delete_event'])->name('delete_event')->middleware('auth','admin');
+Route::get('admin/event/search',[eventController::class,'search_event'])->name('search_event');
 
 //Contri 
 Route::get('contri',[homeController::class,'contri'])->name('contri')->middleware('auth','contri');

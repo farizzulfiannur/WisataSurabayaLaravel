@@ -129,6 +129,11 @@
                             </a>
                         </li>
                         <li class="">
+                            <a class="font-weight-bold" href="{{ route('publicEvent') }}">
+                                Event
+                            </a>
+                        </li>
+                        <li class="">
                             <a class="font-weight-bold" href="{{ route('login') }}">
                                 Login
                             </a>
@@ -175,7 +180,7 @@
                         </a>
                     </div>
                     <div class="text-center group-shortcut">
-                        <a href="#" class="btn-shortcut btn-beat-radial">
+                        <a href="{{route('publicEvent')}}" class="btn-shortcut btn-beat-radial">
                             <div class="d-block w-100">
                                 <i class="fa fa-fw fa-bullhorn fa-3x"></i>
                             </div>

@@ -36,6 +36,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" style="font-size: 20px;
+                                    font-weight: 500;" href="{{ route('event') }}">Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="font-size: 20px;
                                     font-weight: 500;" href="{{ route('logout') }}">Logout</a>
                         </li>
                     </ul>

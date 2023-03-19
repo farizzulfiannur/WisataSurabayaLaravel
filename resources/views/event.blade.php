@@ -53,6 +53,12 @@
                             <a class="nav-link"
                                 style="font-size: 20px;
                                     font-weight: 500;"
+                                href="{{ route('publicEvent') }}">Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                style="font-size: 20px;
+                                    font-weight: 500;"
                                 href="{{ route('login') }}">Login</a>
                         </li>
                     </ul>
@@ -64,7 +70,7 @@
     <!-- Judul -->
     <section class="judul mt-5 mb-5">
         <div class="text-center">
-            <h2 class="text-uppercase font-weight-bold mb-4">Destinasi
+            <h2 class="text-uppercase font-weight-bold mb-4">Event
                 Wisata</h2>
         </div>
     </section>
@@ -75,7 +81,7 @@
 
 
             <div class="container">
-                <form action="{{ route('filterDestinasi') }}" method="GET">
+                <form action="{{ route('filterEvent') }}" method="GET">
                 <div class="accordion-reedit row" id="accordionPanelsStayOpenExample">
 
                     <div class="accordion-item accordion-toggle col-8" style="border: 2px solid #ccc;">
@@ -171,33 +177,33 @@
 
                     <div class="container text-center">
                         <div class="row">
-                            @foreach ($destinasi as $dest)
+                            @foreach ($event as $ev)
                             <div class="col-4">
-                                <a href="{{ route('detailDestinasi', [$dest->id]) }}" style="text-decoration: none; ">
+                                <a href="{{ route('detailEvent', [$ev->id]) }}" style="text-decoration: none; ">
                                 <div class="mb-2 mt-3 img-rounded-hover-effect">
-                                        <img src="{{ asset('cover/' . $dest->dest_cover) }}" alt="Destinasi" class="img-fluid">
+                                        <img src="{{ asset('cover/' . $ev->event_cover) }}" alt="Event" class="img-fluid">
                                     </div>
                                     <div>
-                                        <span class="badge badge-primary"> {{ $dest->dest_category }}
+                                        <span class="badge badge-primary"> {{ $ev->tanggal_mulai }}
                                         </span>
                                     </div>
                                     <hr class="mt-2 mb-2 badge-primary"
                                         style="border: 1.5px solid
                                         #6868ac; border-radius: 5px" />
                                     <div>
-                                        <h5 class='font-weight-bold' style="color: black"> {{ $dest->dest_name }} </h5>
+                                        <h5 class='font-weight-bold' style="color: black"> {{ $ev->event_name }} </h5>
                                         <h6 style="color: black">
                                             <i
                                                 class="fa fa-fw
                                                 fa-map-marker-alt"></i>
-                                            {{ $dest->dest_location }}
+                                            {{ $ev->event_location }}
                                         </h6>
                                     </div>
                                 </a>
                                 </div>
                             @endforeach
                         </div>
-                        {{$destinasi->links('paginatedest')}}
+                        {{$event->links('paginateevent')}}
                     </div>
 
                 </div>
