@@ -47,11 +47,14 @@ Route::get('admin/destinasi/delete/{id}',[adminController::class,'delete_dest'])
 Route::get('admin/destinasi/edit/{id}',[adminController::class,'edit_dest'])->name('editDestinasi')->middleware('auth','admin');
 
 // Event
-Route::get('admin/event', [EventController::class, 'index_event'])->name('event')->middleware('auth', 'admin');
-Route::get('admin/event/tambah', [EventController::class, 'add_event'])->name('add_event')->middleware('auth', 'admin');
-Route::post('admin/event/store', [EventController::class, 'store_event'])->name('store_event')->middleware('auth', 'admin');
-Route::get('admin/event/delete/{id}', [EventController::class, 'delete_event'])->name('delete_event')->middleware('auth', 'admin');
-Route::get('admin/event/edit/{id}', [EventController::class, 'edit_Event'])->name('edit_event')->middleware('auth', 'admin');
+Route::get('admin/event', [eventController::class, 'index_event'])->name('event')->middleware('auth', 'admin');
+Route::get('admin/event/tambah', [eventController::class, 'addEvent'])->name('addEvent')->middleware('auth', 'admin');
+Route::post ('admin/event/store', [eventController::class, 'store_event'])->name('store_event')->middleware('auth', 'admin');
+Route::get('admin/event/delete/{id}', [eventController::class, 'delete_event'])->name('delete_event')->middleware('auth', 'admin');
+Route::get('admin/event/edit/{id}', [eventController::class, 'edit_event'])->name('edit_event')->middleware('auth', 'admin');
+Route::post('admin/event/update/{id}',[eventController::class, 'update_event'])->name('update_event')->middleware('auth', 'admin');
+Route::delete('admin/event/delete/{id}', [eventController::class, 'delete_event'])->name('delete_event')->middleware('auth', 'admin');
+Route::get('admin/event/search', [eventController::class, 'search_event'])->name('search_event')->middleware('auth', 'admin');
 
 // ============================================== //
 
