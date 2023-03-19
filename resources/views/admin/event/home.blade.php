@@ -188,7 +188,7 @@
                                                         style="border-radius: 100%">
                                                 </td>
                                                 <td>
-                                                    @foreach ($ev->photoeventbarus as $photo)
+                                                    @foreach ($ev->photoeventbaru as $photo)
                                                         <img class="mb-2"
                                                             src="{{ asset('event/' . $photo->eventphoto) }}"
                                                             alt="image" height="40px" width="40px"
