@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-lg box-navbar" data-bs-theme="white">
             <div class="container p-2">
                 <a class="navbar-brand ms-3" href="#">
-                    <img src="assets/img/header/surabaya.png" alt="Bootstrap" width="105px">
+                    <img src="{{ asset('assets/img/header/surabaya.png') }}" alt="Bootstrap" width="105px">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -75,9 +75,10 @@
 
 
             <div class="container">
+                <form action="{{ route('filterDestinasi') }}" method="GET">
                 <div class="accordion-reedit row" id="accordionPanelsStayOpenExample">
 
-                    {{-- <div class="accordion-item accordion-toggle col-6" style="border: 2px solid #ccc;">
+                    <div class="accordion-item accordion-toggle col-8" style="border: 2px solid #ccc;">
                             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
@@ -88,7 +89,7 @@
                             </h2>
                         </div>
 
-                        <div class="accordion-item accordion-toggle col-6" style="border: 2px solid #ccc;">
+                        {{-- <div class="accordion-item accordion-toggle col-4" style="border: 2px solid #ccc;">
                             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
@@ -97,7 +98,8 @@
                                             color: #6868ac;">Filter Keyword</span>
                                 </button>
                             </h2>
-                        </div>
+                        </div> --}}
+                            <button type="submit" class="badge badge-primary tester col-4"><i class="fa fa-fw fa-search"></i> Filter</button>
 
                         <div id="panelsStayOpen-collapseOne" class="accordion-collapse
                                 collapse" aria-labelledby="panelsStayOpen-headingOne" style="border: 2px solid #ccc;">
@@ -107,15 +109,15 @@
 
                                 <div class="p-2">
                                     <div class="form-check ">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1" v-model="selectedCategory" value="All">
+                                        <input class="form-check-input" type="radio" name="selectcategory"
+                                            id="flexRadioDefault1" value="">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Semua
                                         </label>
                                     </div>
                                     <div class="form-check ">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1" v-model="selectedCategory" value="pusatperbelanjaan">
+                                        <input class="form-check-input" type="radio" name="selectcategory"
+                                            id="flexRadioDefault1" value="pusat perbelanjaan">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Pusat Perbelanjaan
                                         </label>
@@ -123,8 +125,8 @@
 
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1" v-model="selectedCategory" value="monumen">
+                                        <input class="form-check-input" type="radio" name="selectcategory"
+                                            id="flexRadioDefault1"  value="monumen">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Monumen
                                         </label>
@@ -132,16 +134,16 @@
 
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1" v-model="selectedCategory" value="religi">
+                                        <input class="form-check-input" type="radio" name="selectcategory"
+                                            id="flexRadioDefault1"  value="religi">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Religi
                                         </label>
                                     </div>
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1" v-model="selectedCategory" value="nature">
+                                        <input class="form-check-input" type="radio" name="selectcategory"
+                                            id="flexRadioDefault1"  value="nature">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Nature and Outdoor
                                         </label>
@@ -152,16 +154,17 @@
 
                             </div>
                         </div>
-                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse
+                        {{-- <div id="panelsStayOpen-collapseTwo" class="accordion-collapse
                                 collapse" aria-labelledby="panelsStayOpen-headingTwo" style="border: 2px solid #ccc;">
                             <div class="accordion-body">
                                 <div class="mt-2 mb-2">
-                                    <input class="form-control" type="text" v-model="search"
+                                    <input class="form-control" type="text" name="search"
                                         placeholder="Cari Kata Kunci">
                                 </div>
                             </div>
-                        </div>
-                    </div> --}}
+                        </div> --}}
+                    </div>
+                </form>
 
                     {{-- Filter End --}}
 
@@ -194,7 +197,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        {{$destinasi->links('paginatecustom')}}
+                        {{$destinasi->links('paginatedest')}}
                     </div>
 
                 </div>

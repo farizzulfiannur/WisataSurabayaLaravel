@@ -171,21 +171,8 @@
                                             <th scope="col"></th>
                                         </tr>
                                     </thead>
-                                    {{-- <tfoot>
-                                        <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Nama</th>
-                                            <th scope="col">Category</th>
-                                            <th scope="col">Location</th>
-                                            <th scope="col">Cover</th>
-                                            <th scope="col"> Image </th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </tfoot> --}}
+
                                     <tbody>
-                                        {{-- @php
-                                            $no = 1;
-                                        @endphp --}}
                                         @foreach ($destinasi as $dest)
                                             <tr>
                                                 {{-- <td>{{ $no++ }}</td> --}}
@@ -222,16 +209,49 @@
                                                             @method('delete')
                                                         </form> --}}
 
-                                                        <a class="btn btn-outline-danger" href="#" role="button" data-toggle="modal" data-target="#deleteModal">
+                                                        <a class="btn btn-outline-danger" href="#"
+                                                            role="button" data-toggle="modal"
+                                                            data-target="#deleteModal">
                                                             <i class="fa fa-trash"></i>
                                                         </a>
+                                                    </div>
+
+                                                    {{-- Delete Modal --}}
+                                                    <div class="modal fade" id="deleteModal" tabindex="-1"
+                                                        role="dialog" aria-labelledby="deleteModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="deleteModalLabel">
+                                                                        Delete</h5>
+                                                                    <button class="close" type="button"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">Apakah anda yakin ingin Delete?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary" type="button"
+                                                                        data-dismiss="modal">Cancel</button>
+                                                                    <form
+                                                                        action=" {{ route('deleteDestinasi', [$dest->id]) }} ">
+                                                                        <button class="btn btn-primary"
+                                                                            type="submit">Delete</button>
+                                                                        @csrf
+                                                                        @method('delete')
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                                {{ $destinasi->links('paginatecustom') }}
+                                    {{ $destinasi->links('paginatecustom') }}
                             </div>
                         </div>
                     </div>
@@ -267,33 +287,6 @@
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- Delete Modal --}}
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Apakah anda yakin ingin Delete?</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <form action=" {{ route('deleteDestinasi', [$dest->id]) }} ">
-                        <button class="btn btn-primary" type="submit">Delete</button>
-                        {{-- <button class="btn btn-outline-danger"
-                            onclick="return confirm('Apakah anda yakin ingin menghapus?');" type="submit"><i
-                                class="fa fa-trash" aria-hidden="true"></i></button> --}}
-                        @csrf
-                        @method('delete')
-                    </form>
                 </div>
             </div>
         </div>

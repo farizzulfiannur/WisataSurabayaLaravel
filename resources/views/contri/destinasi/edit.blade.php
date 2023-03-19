@@ -49,7 +49,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin') }}">
+                <a class="nav-link" href="{{ route('contri') }}">
                     <i class="fas fa-fw fa-house-user"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -62,7 +62,7 @@
                 Page
             </div>
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('destinasi') }}">
+                <a class="nav-link" href="{{ route('destinasic') }}">
                     <i class="fas fa-fw fa-map-marked-alt"></i>
                     <span>Destinasi</span></a>
             </li>
@@ -135,14 +135,14 @@
                                 </div>
                                 <div class="col-6 d-flex justify-content-end">
                                     <a class="btn-close btn-outline-primary" aria-label="close"
-                                        href="{{ route('destinasi') }}" role="button"></a>
+                                        href="{{ route('destinasic') }}" role="button"></a>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <form action="{{ route('updateDestinasi', [$destinasi->id]) }}" method="post"
+                                    <form action="{{ route('updateDestinasic', [$destinasi->id]) }}" method="post"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group mb-3">

@@ -163,7 +163,7 @@
             <div class="mt-9 container-shortcut">
                 <div class="d-flex">
                     <div class="text-center group-shortcut">
-                        <a href="#" class="btn-shortcut btn-beat-radial">
+                        <a href="{{ route('publicDestinasi') }}" class="btn-shortcut btn-beat-radial">
                             <div class="d-block w-100">
                                 <i class="fa fa-fw fa-map-marked-alt fa-3x"></i>
                             </div>

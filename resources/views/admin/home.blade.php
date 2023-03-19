@@ -128,7 +128,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Admin Dashboard</h6>
                         </div>
                         <div class="card-body">
-                            <p style="color:grey">Selamat Datang, Harry Maguire</p>
+                            <p style="color:grey">Selamat Datang, {{ Auth::user()->name }}</p>
                             <p style="color:grey">Anda login dengan role ( {{ Auth::user()->role }} ) </p>
                         </div>
                     </div>

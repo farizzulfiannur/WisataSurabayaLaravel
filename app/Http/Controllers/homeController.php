@@ -27,7 +27,7 @@ class homeController extends Controller
     }
 
     public function destinasi(){
-        $destinasi = destination::paginate(9);
+        $destinasi = destination::paginate(6);
         return view('destinasi',compact('destinasi'));
     }
 
@@ -36,4 +36,19 @@ class homeController extends Controller
         return view('detaildestinasi', compact('destinasi'));
     }
 
+    public function filter(Request $request){
+        // if ($request ->has('search')) {
+        //     $destinasi =  destination::where('dest_name', 'LIKE', '%' . $request->search . '%')
+        //     ->orWhere('dest_category', 'LIKE', '%' . $request->search . '%')
+        //     ->orWhere('dest_location', 'LIKE', '%' . $request->search . '%')
+        //     ->paginate(6);
+        // }
+         if($request ->has('selectcategory')){
+            $destinasi = destination::where('dest_category', 'LIKE', '%' . $request->selectcategory . '%')
+            ->paginate(6);
+        } else {
+            $destinasi = destination::all();
+        }
+        return view('destinasi', compact('destinasi'));
+    }
 }

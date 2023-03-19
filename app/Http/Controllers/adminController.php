@@ -130,7 +130,7 @@ class adminController extends Controller
 
     public function search(Request $request)
     {
-        if ($request->has('search')) {
+        if ($request->search) {
             $destinasi =  destination::where('dest_name', 'LIKE', '%' . $request->search . '%')
             ->orWhere('dest_category', 'LIKE', '%' . $request->search . '%')
             ->orWhere('dest_location', 'LIKE', '%' . $request->search . '%')

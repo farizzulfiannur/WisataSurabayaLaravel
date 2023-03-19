@@ -6,6 +6,7 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\registerController;
+use App\Http\Middleware\contri;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[homeController::class,'home'])->name('home');
 Route::get('/dest',[homeController::class,'destinasi'])->name('publicDestinasi');
 Route::get('dest/detail/{id}',[homeController::class,'detail'])->name('detailDestinasi');
+Route::get('/dest/filter', [homeController::class,'filter'])->name('filterDestinasi');
 
 // Proses Registrasi
 Route::get('/login',[loginController::class,'login'])->name('login');
@@ -49,4 +51,11 @@ Route::get('admin/destinasi/search',[adminController::class,'search'])->name('se
 Route::get('contri',[homeController::class,'contri'])->name('contri')->middleware('auth','contri');
 
 //Destinasi 
-Route::get('contri/destinasi',[contriController::class,'index'])->name('contridestinasi')->middleware('auth','contri');
+Route::get('contri/destinasi',[contriController::class,'index'])->name('destinasic')->middleware('auth','contri');
+Route::get('contri/destinasi/tambah',[contriController::class,'tambahDestinasi'])->name('tambahDestinasic')->middleware('auth','contri');
+Route::post('contri/destinasi/store',[contriController::class,'store'])->name('storeDestinasic')->middleware('auth','contri');
+Route::get('contri/destinasi/delete/{id}',[contriController::class,'delete'])->name('deleteDestinasic')->middleware('auth','contri');
+Route::get('contri/destinasi/edit/{id}',[contriController::class,'edit'])->name('editDestinasic')->middleware('auth','contri');
+Route::post('contri/destinasi/update/{id}',[contriController::class,'update'])->name('updateDestinasic')->middleware('auth','contri');
+Route::delete('contri/destinasi/delete/{id}',[contriController::class,'delete'])->name('deleteDestinasic')->middleware('auth','contri');
+Route::get('contri/destinasi/search',[contriController::class,'search'])->name('searchDestinasic');
