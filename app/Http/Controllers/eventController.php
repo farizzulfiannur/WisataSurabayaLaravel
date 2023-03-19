@@ -91,7 +91,7 @@ class eventController extends Controller
             'tanggal_mulai' => $request->tanggal_mulai,
             'tanggal_akhir' => $request->tanggal_akhir,
             'event_desc' => $request->event_desc,
-            'event_cover' => $imageName,
+            'event_cover' => $event->event_cover,
         ]);
 
         $photoevent =  $event->photoevent;

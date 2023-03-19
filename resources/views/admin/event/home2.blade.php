@@ -102,7 +102,8 @@
                             <td>{{ $ev->event_location }}</td>
                             <td>{{ $ev->tanggal_mulai }}</td>
                             <td>{{ $ev->tanggal_akhir }}</td>
-                            {{-- <td>{{ $dest->dest_desc }}</td> --}}
+                            <td>{{ $dest->dest_desc }}</td>
+                            {{--  --}}
                             <td>
                                     <img src="{{ asset('cover/' . $ev->event_cover) }}" alt="image"
                                         height="40px" width="40px">
