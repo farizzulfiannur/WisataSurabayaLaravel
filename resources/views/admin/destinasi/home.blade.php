@@ -65,7 +65,7 @@
                     <span>Destinasi</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('event') }}">
                     <i class="fas fa-fw fa-bullhorn fa-3x"></i>
                     <span>Event</span></a>
             </li>

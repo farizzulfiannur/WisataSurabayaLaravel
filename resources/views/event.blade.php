@@ -70,8 +70,7 @@
     <!-- Judul -->
     <section class="judul mt-5 mb-5">
         <div class="text-center">
-            <h2 class="text-uppercase font-weight-bold mb-4">Event
-                Wisata</h2>
+            <h2 class="text-uppercase font-weight-bold mb-4">Event Surabaya</h2>
         </div>
     </section>
 
@@ -84,7 +83,7 @@
                 <form action="{{ route('filterEvent') }}" method="GET">
                 <div class="accordion-reedit row" id="accordionPanelsStayOpenExample">
 
-                    <div class="accordion-item accordion-toggle col-8" style="border: 2px solid #ccc;">
+                    {{-- <div class="accordion-item accordion-toggle col-8" style="border: 2px solid #ccc;">
                             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
@@ -93,34 +92,27 @@
                                             color: #6868ac;">Filter Kategori</span>
                                 </button>
                             </h2>
-                        </div>
+                        </div> --}}
 
-                        {{-- <div class="accordion-item accordion-toggle col-4" style="border: 2px solid #ccc;">
+                        <div class="accordion-item accordion-toggle col-8" style="border: 2px solid #ccc;">
                             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                                     aria-controls="panelsStayOpen-collapseTwo">
                                     <span class="font-weight-bold" style="font-size: 20px;
-                                            color: #6868ac;">Filter Keyword</span>
+                                            color: #6868ac;">Filter Tanggal</span>
                                 </button>
                             </h2>
-                        </div> --}}
+                        </div>
                             <button type="submit" class="badge badge-primary tester col-4"><i class="fa fa-fw fa-search"></i> Filter</button>
 
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse
+                         {{-- <div id="panelsStayOpen-collapseOne" class="accordion-collapse
                                 collapse" aria-labelledby="panelsStayOpen-headingOne" style="border: 2px solid #ccc;">
                             <div class="accordion-body">
 
                                 <!-- Radio Button -->
 
                                 <div class="p-2">
-                                    {{-- <div class="form-check ">
-                                        <input class="form-check-input" type="radio" name="selectcategory"
-                                            id="flexRadioDefault1" value="">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Semua
-                                        </label>
-                                    </div> --}}
                                     <div class="form-check ">
                                         <input class="form-check-input" type="radio" name="selectcategory"
                                             id="flexRadioDefault1" value="pusat perbelanjaan">
@@ -159,16 +151,16 @@
                                 <!-- End Radio Button -->
 
                             </div>
-                        </div>
-                        {{-- <div id="panelsStayOpen-collapseTwo" class="accordion-collapse
+                        </div> --}}
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse
                                 collapse" aria-labelledby="panelsStayOpen-headingTwo" style="border: 2px solid #ccc;">
                             <div class="accordion-body">
                                 <div class="mt-2 mb-2">
                                     <input class="form-control" type="text" name="search"
-                                        placeholder="Cari Kata Kunci">
+                                        placeholder="Cari Berdasarkan Tanggal">
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </form>
 
@@ -184,7 +176,7 @@
                                         <img src="{{ asset('cover/' . $ev->event_cover) }}" alt="Event" class="img-fluid">
                                     </div>
                                     <div>
-                                        <span class="badge badge-primary"> {{ $ev->tanggal_mulai }}
+                                        <span class="badge badge-primary"> {{ $ev->tanggal_mulai }} - {{ $ev->tanggal_akhir }}
                                         </span>
                                     </div>
                                     <hr class="mt-2 mb-2 badge-primary"

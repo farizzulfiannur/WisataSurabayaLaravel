@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="id">
 
 <head>
     <meta charset="UTF-8" />
@@ -9,7 +10,7 @@
     <link rel="shortcut icon" href="assets/img/header/logos.png" />
 
     <!-- CDN Vue JS -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script> --}}
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -17,6 +18,8 @@
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/menuzord.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/star.css') }}"> --}}
 
 </head>
 
@@ -26,7 +29,7 @@
         <nav class="navbar navbar-expand-lg box-navbar" data-bs-theme="white">
             <div class="container p-2">
                 <a class="navbar-brand ms-3" href="#">
-                    <img src=" {{ asset('assets/img/header/surabaya.png') }}" alt="Bootstrap" width="105px">
+                    <img src="{{ asset('assets/img/header/surabaya.png') }}" alt="Bootstrap" width="105px">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -34,31 +37,31 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end
-                        me-4"
+                            me-4"
                     id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link"
                                 style="font-size: 20px;
-                                    font-weight: 500;"
+                                        font-weight: 500;"
                                 href="{{ route('home') }}">Beranda</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                 style="font-size: 20px;
-                                    font-weight: 500;"
+                                        font-weight: 500;"
                                 href="{{ route('publicDestinasi') }}">Destinasi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                 style="font-size: 20px;
-                                    font-weight: 500;"
-                                href="{{ route('publicEvent') }}">Event</a>
+                                        font-weight: 500;"
+                                href="{{ route('publicEvent') }}"> Event </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                 style="font-size: 20px;
-                                    font-weight: 500;"
+                                        font-weight: 500;"
                                 href="{{ route('login') }}">Login</a>
                         </li>
                     </ul>
@@ -67,26 +70,24 @@
         </nav>
     </section>
 
-    <div class="container">
-        <!-- Judul -->
-        <section class="judul mt-5 mb-5">
-            <div class="text-center">
-                <h2 class="text-uppercase font-weight-bold mb-4"> {{ $destinasi->dest_name }} </h2>
-            </div>
+    <div class="text-center mt-5 mb-5">
+        <h2 class="text-uppercase font-weight-bold mb-4"> {{ $event->event_name }} </h2>
+    </div>
 
+    <section class="py-7">
+        <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-6">
                     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{ asset('cover/' . $destinasi->dest_cover) }}" style="border-radius: 10px;"
-                                    class="d-block w-100" alt="Gambar" height="600px">
+                                <img src="{{ asset('cover/' . $event->event_cover) }}"
+                                    class="d-block w-100" style="border-radius: 20px" alt="GambarEvent">
                             </div>
-                            @foreach ($destinasi->photodests as $photo)
+                            @foreach ($event->photoevents as $photo)
                                 <div class="carousel-item">
-                                    <img src="{{ asset('destinasi/' . $photo->destphoto) }}"
-                                        style="border-radius: 10px;" class="d-block w-100" alt="Gambar"
-                                        height="600px">
+                                    <img src="{{ asset('event/' . $photo->eventphoto) }}"
+                                    class="d-block w-100" style="border-radius: 20px" alt="GambarEvent">
                                 </div>
                             @endforeach
                         </div>
@@ -102,37 +103,73 @@
                         </button>
                     </div>
                 </div>
+                <div class="col-6">
+                    <div class="card mb-2 shadow">
+                        <div class="card-body px-1">
+                            <div class="d-flex align-items-center">
+                                <div class="text-center p-1 mr-2">
+                                    <i class="fa fa-fw fa-map-marked-alt" style="font-size: 30px;"></i>
+                                </div>
+                                <div>
+                                    <h6 class="font-weight-bold mb-1">
+                                        Alamat
+                                    </h6>
+                                    <p style="color: black">
+                                        {{ $event->event_location }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-6 my-2 shadow">
+                        <div class="card-body px-1">
+                            <div class="d-flex align-items-center">
+                                <div class="text-center p-1 mr-2">
+                                    <i class="fa fa-fw fa-calendar-alt" style="font-size: 30px;"></i>
+                                </div>
+                                <div>
+                                    <h6 class="font-weight-bold mb-1">
+                                        Tanggal
+                                    </h6>
+                                    <p style="color: black">
+                                        {{ $event->tanggal_mulai }}
+                                        - {{ $event->tanggal_akhir }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card my-2 shadow">
+                        <div class="card-body px-1">
+                            <div class="d-flex align-items-center">
+                                <div class="text-center p-1 mr-2">
+                                    <i class="fa fa-fw fa-user" style="font-size: 30px;"></i>
+                                </div>
+                                <div>
+                                    <h6 class="font-weight-bold mb-1">
+                                        Penyelenggara
+                                    </h6>
+                                    <p style="color: black">
+                                        {{ $event->event_penyelenggara }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-        <section class="description mb-5">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="font-weight-bold">
-                        {{ $destinasi->dest_name }}
-                    </h3>
-                    <div class="meta-post-sm mb-4">
-                        <ul class="list-unstyled d-flex flex-wrap mb-0">
-                            <li class="me-4 mb-1">
-                                <i class="fa fa-map-marker-alt font-weight-bold" aria-hidden="true"></i>
-                                <span style="color: black;" class="font-weight-bold hover-text-primary">
-                                    {{ $destinasi->dest_location }}
-                                </span>
-                            </li>
-                            <li class="font-weight-bold me-4 mb-1">
-                                <i class="fa fa fa-tags" aria-hidden="true"></i>
-                                <span style="color: black; font-weight: 700;" class="ms-1 text-capitalize">
-                                    {{ $destinasi->dest_category }}
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div style="margin: 0; text-indent: 2rem; text-align: justify; font-size: 15px;" class="mb-5"
-                        id="content">
-                        {{ $destinasi->dest_desc }}
-                    </div>
-        </section>
-    </div>
+            <div class="mt-5 mb-5" style="margin: 0; text-indent: 2rem; text-align: justify; font-size: 15px;" class="mb-5"
+                id="content">
+                Lomba Perahu Layar diadakan di Pantai
+                Kenjeran setiap satu tahun sekali. Para peserta
+                mempercantik perahunya dengan kreasi corak
+                layar warna-warni yang beraneka. Tahun ini dipilih bulan Mei dengan jadwal tentative
+                menyesuaikan kondisi cuaca dan angin
+            </div>
+        </div>
+    </section>
+
 
     <!-- Footer -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"
@@ -290,7 +327,6 @@
             </div>
         </div>
     </footer>
-    <!-- CDN Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>

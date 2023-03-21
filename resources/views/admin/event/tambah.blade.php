@@ -61,12 +61,12 @@
             <div class="sidebar-heading">
                 Page
             </div>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('destinasi') }}">
                     <i class="fas fa-fw fa-map-marked-alt"></i>
                     <span>Destinasi</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="{{route('event')}}">
                     <i class="fas fa-fw fa-bullhorn fa-3x"></i>
                     <span>Event</span></a>
@@ -140,7 +140,7 @@
                         </div>
                         <div class="card-body">
                             <div class="card-body">
-                                <form action="{{ route('store_event') }}" method="POST"
+                                <form action="{{ route('storeEvent') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @if ($errors->any())
@@ -156,16 +156,6 @@
                                         <label for="title">Nama Event</label>
                                         <input type="text" name="event_name" id="title" class="form-control">
                                     </div>
-                                    {{-- <div class="form-group mb-3">
-                                        <label for="title">Destinasi Kategori</label>
-                                        <select name="dest_category" class="form-select" aria-label="Default select">
-                                            <option selected>Pilih Kategori</option>
-                                            <option value="Pusat Perbelanjaan"> Pusat Perbelanjaan</option>
-                                            <option value="Monumen"> Monumen</option>
-                                            <option value="Religi"> Religi</option>
-                                            <option value="Nature and Outdoor"> Nature and Outdoor</option>
-                                        </select>
-                                    </div> --}}
                                     <div class="form-group mb-3">
                                         <label for="title">Lokasi Event</label>
                                         <input type="text" name="event_location" id="title"
@@ -179,6 +169,11 @@
                                     <div class="form-group mb-3">
                                         <label for="title">Tanggal Akhir</label>
                                         <input type="text" name="tanggal_akhir" id="title"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="title">Nama Penyelenggara</label>
+                                        <input type="text" name="event_penyelenggara" id="title"
                                             class="form-control">
                                     </div>
                                     <div class="mb-3">

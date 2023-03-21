@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Photoevent extends Model
+class photoevent extends Model
 {
     use HasFactory;
+    
 
     protected $fillable = [
-        'event_id',
         'eventphoto',
+        'event_id',
     ];
-
     public function events(){
-        return $this->belongsTo(Event::class);
+        return $this->belongsTo(event::class);
     }
 }

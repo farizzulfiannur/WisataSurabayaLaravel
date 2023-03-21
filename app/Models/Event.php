@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class event extends Model
 {
     use HasFactory;
 
@@ -16,9 +16,10 @@ class Event extends Model
         'tanggal_akhir',
         'event_desc',
         'event_cover',
+        'event_penyelenggara'
     ];
 
     public function photoevents(){
-        return $this->hasMany(Photoevent::class);
+        return $this->hasMany(photoevent::class);
     }
 }

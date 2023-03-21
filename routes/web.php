@@ -8,6 +8,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\registerController;
 use App\Http\Middleware\contri;
+use App\Models\event;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +27,9 @@ Route::get('/',[homeController::class,'home'])->name('home');
 Route::get('/dest',[homeController::class,'destinasi'])->name('publicDestinasi');
 Route::get('dest/detail/{id}',[homeController::class,'detail'])->name('detailDestinasi');
 Route::get('/dest/filter', [homeController::class,'filter'])->name('filterDestinasi');
-Route::get('/event',[homeController::class,'event'])->name('publicEvent');
-Route::get('event/detail/{id}',[homeController::class,'detail_event'])->name('detailEvent');
-Route::get('/event/filter', [homeController::class,'filter_event'])->name('filterEvent');
+Route::get('/eventku',[homeController::class,'event'])->name('publicEvent');
+Route::get('eventku/detail/{id}',[homeController::class,'detailEvent'])->name('detailEvent');
+Route::get('/eventku/filter', [homeController::class,'filterEvent'])->name('filterEvent');
 
 // Proses Registrasi
 Route::get('/login',[loginController::class,'login'])->name('login');
@@ -52,14 +53,14 @@ Route::delete('admin/destinasi/delete/{id}',[adminController::class,'delete'])->
 Route::get('admin/destinasi/search',[adminController::class,'search'])->name('searchDestinasi');
 
 // Event
-Route::get('admin/event', [eventController::class, 'index_event'])->name('event');
-Route::get('admin/event/tambah',[eventController::class,'addEvent'])->name('addEvent')->middleware('auth','admin');
-Route::post('admin/event/store',[eventController::class,'store_event'])->name('store_event')->middleware('auth','admin');
-Route::get('admin/event/delete/{id}',[eventController::class,'delete_event'])->name('delete_event')->middleware('auth','admin');
-Route::get('admin/event/edit/{id}',[eventController::class,'edit_event'])->name('edit_event')->middleware('auth','admin');
-Route::post('admin/event/update/{id}',[eventController::class,'update_event'])->name('update_event')->middleware('auth','admin');
-Route::delete('admin/event/delete/{id}',[eventController::class,'delete_event'])->name('delete_event')->middleware('auth','admin');
-Route::get('admin/event/search',[eventController::class,'search_event'])->name('search_event');
+Route::get('admin/event',[eventController::class,'indexEvent'])->name('event')->middleware('auth','admin');
+Route::get('admin/event/tambah',[eventController::class,'tambahEvent'])->name('tambahEvent')->middleware('auth','admin');
+Route::post('admin/event/store',[eventController::class,'storeEvent'])->name('storeEvent')->middleware('auth','admin');
+Route::get('admin/event/edit/{id}',[eventController::class,'editEvent'])->name('editEvent')->middleware('auth','admin');
+Route::get('admin/event/delete/{id}',[eventController::class,'deleteEvent'])->name('deleteEvent')->middleware('auth','admin');
+Route::post('admin/event/update/{id}',[eventController::class,'updateEvent'])->name('updateEvent')->middleware('auth','admin');
+Route::delete('admin/event/delete/{id}',[eventController::class,'deleteEvent'])->name('deleteEvent')->middleware('auth','admin');
+Route::get('admin/event/search',[eventController::class,'searchEvent'])->name('searchEvent');
 
 //Contri 
 Route::get('contri',[homeController::class,'contri'])->name('contri')->middleware('auth','contri');

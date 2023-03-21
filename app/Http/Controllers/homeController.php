@@ -34,7 +34,7 @@ class homeController extends Controller
     }
 
     public function event(){
-        $event = eventbaru::paginate(6);
+        $event = event::paginate(6);
         return view('event', compact('event'));
     }
 
@@ -43,8 +43,8 @@ class homeController extends Controller
         return view('detaildestinasi', compact('destinasi'));
     }
 
-    public function detail_event($id){
-        $event = eventbaru::findOrFail($id);
+    public function detailEvent($id){
+        $event = event::findOrFail($id);
         return view('detailevent', compact('event'));
     }
 
@@ -64,11 +64,17 @@ class homeController extends Controller
         return view('destinasi', compact('destinasi'));
     }
 
-    public function filter_event(Request $request){
-        if($request ->has('selectcategory')){
-            $event = event::where('tanggal_mulai', 'LIKE', '%' . $request->tanggal_mulai . '%')
+    public function filterEvent(Request $request){
+         if ($request ->has('search')) {
+            $event =  event::where('event_name', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('event_desc', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('event_location', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('event_cover', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('tanggal_mulai', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('tanggal_akhir', 'LIKE', '%' . $request->search . '%')
             ->paginate(6);
-        } else {
+        }
+        else {
             $event = event::all();
         }
         return view('event', compact('event'));

@@ -61,13 +61,13 @@
             <div class="sidebar-heading">
                 Page
             </div>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('destinasi') }}">
                     <i class="fas fa-fw fa-map-marked-alt"></i>
                     <span>Destinasi</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route(event)}}">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('event')}}">
                     <i class="fas fa-fw fa-bullhorn fa-3x"></i>
                     <span>Event</span></a>
             </li>
@@ -142,7 +142,7 @@
                         <div class="card-body">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <form action="{{ route('update_event', [$event->id]) }}" method="post"
+                                    <form action="{{ route('updateEvent', [$event->id]) }}" method="post"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group mb-3">
@@ -167,6 +167,26 @@
                                             <input type="text" value="{{ $event->event_location }}"
                                                 name="event_location" id="title" class="form-control">
                                         </div>
+                                        <div class="form-group mb-3">
+                                            <label for="title">Lokasi Event</label>
+                                            <input type="text" value="{{ $event->event_location }}"
+                                                name="event_location" id="title" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="title">Lokasi Event</label>
+                                            <input type="text" value="{{ $event->event_penyelenggara }}"
+                                                name="event_location" id="title" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="title">Tanggal Mulai</label>
+                                            <input type="text" value="{{ $event->tanggal_mulai }}"
+                                                name="tanggal_mulai" id="title" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="title">Tanggal Akhir</label>
+                                            <input type="text" value="{{ $event->tanggal_akhir }}"
+                                                name="tanggal_mulai" id="title" class="form-control">
+                                        </div>
                                         <div class="mb-3">
                                             <label for="event_desc" class="form-label">Deskripsi</label>
                                             <textarea class="form-control" name="event_desc" id="event_desc" rows="3">{{ $event->event_desc }}</textarea>
@@ -179,9 +199,9 @@
                                             <input type="file" id="input-file-now-custom-3"
                                                 class="form-control m-2" name="cover">
                                         </div>
-                                        @if (count($event->photoevent) > 0)
+                                        @if (count($event->photoevents) > 0)
                                             <p>Images:</p>
-                                            @foreach ($event->photoevent as $img)
+                                            @foreach ($event->photoevents as $img)
                                                 <img src="{{ asset('/event/' . $img->eventphoto) }}"
                                                     class="img-responsive"
                                                     style="max-height: 100px; max-width: 100px;" alt=""

@@ -2,52 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\event;
+use App\Models\photoevent;
 use Illuminate\Http\Request;
-use App\Models\Event;
-use App\Models\Photoevent;
-use App\Models\Event_photo;
-use App\Models\eventbaru;
-use App\Models\photoeventbaru;
-use App\Services\admin\adminServices;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
-
-class eventController extends Controller
+class EventController extends Controller
 {
-    // public function __construct(adminServices $adminServices)
-    // {
-    //     $this->adminServices = $adminServices;
-    // }
-
-    public function index_event()
-    {
+    public function indexEvent(){
         $user = Auth::user()->id;
-        $event = eventbaru::paginate(2);
+        $event = event::paginate(2);
         return view('admin.event.home', compact('event'));
     }
 
-    public function addEvent()
+    public function tambahEvent()
     {
         return view('admin.event.tambah');
     }
 
-    public function store_event(Request $request)
+    public function storeEvent(Request $request)
     {
 
         if ($request->hasFile('cover')) {
             $file = $request->file("cover");
             $imageName = time() . '_' . $file->getClientOriginalName();
             $file->move(\public_path("cover/"), $imageName);
-            $data = eventbaru::create([
+            $data = event::create([
                 'event_name' => $request->event_name,
                 'event_location' => $request->event_location,
                 'tanggal_mulai' => $request->tanggal_mulai,
                 'tanggal_akhir' => $request->tanggal_akhir,
                 'event_desc' => $request->event_desc,
+                'event_penyelenggara' => $request->event_penyelenggara,
                 'event_cover' => $imageName,
             ]);
             $data->save();
@@ -59,23 +46,22 @@ class eventController extends Controller
                 $imageName = time() . '_' . $file->getClientOriginalName();
                 $request['event_id'] = $data->id;
                 $request['eventphoto'] = $imageName;
-                $file->move(\public_path("/event"), $imageName);
-                photoeventbaru::create($request->all());
+                $file->move(\public_path("event/"), $imageName);
+                photoevent::create($request->all());
             }
         }
 
         return redirect()->route('event');
     }
 
-    public function edit_event($id)
-    {
-        $event = eventbaru::findOrFail($id);
+    public function editEvent($id){
+        $event = event::findOrFail($id);
         return view('admin.event.edit', compact('event'));
     }
 
-    public function update_event(Request $request, $id)
+    public function updateEvent(Request $request, $id)
     {
-        $event = eventbaru::findOrFail($id);
+        $event = event::findOrFail($id);
         if ($request->hasFile("cover")) {
             if (File::exists("cover/" . $event->event_cover)) {
                 File::delete("cover/" . $event->event_cover);
@@ -88,14 +74,15 @@ class eventController extends Controller
         $event->update([
             'event_name' => $request->event_name,
             'event_location' => $request->event_location,
-            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_mulai' => $request -> tanggal_mulai,
             'tanggal_akhir' => $request->tanggal_akhir,
-            'event_desc' => $request->event_desc,
             'event_cover' => $event->event_cover,
+            'event_desc' => $request->event_desc,
+            'event_penyelenggara' => $request->event_penyelenggara,
         ]);
 
-        $photoevent =  $event->photoevent;
-        foreach ($photoevent as $photo) {
+        $photoevents =  $event->photoevents;
+        foreach ($photoevents as $photo) {
             if (!$photo) {
                 continue;
             }
@@ -104,10 +91,10 @@ class eventController extends Controller
 
             if ($request->has($img_id)) {
                 $newPhoto = $request[$img_id];
-                $photoevent = photoeventbaru::findOrFail($photo->id);
+                $photoDest = photoevent::findOrFail($photo->id);
                 $imageName = time() . '_' . $newPhoto->getClientOriginalName();
                 $newPhoto->move(\public_path("/event"), $imageName);
-                $photoevent->update([
+                $photoDest->update([
                     'eventphoto' => $imageName,
                 ]);
             }
@@ -116,12 +103,12 @@ class eventController extends Controller
         return redirect()->route('event');
     }
 
-    public function delete_event($id)
+    public function deleteEvent($id)
     {
-        $event = eventbaru::findOrFail($id);
-        $photoevent = photoeventbaru::where("event_id", $event->id)->get();
+        $event = event::findOrFail($id);
+        $photoevents = photoevent::where("event_id", $event->id)->get();
 
-        foreach ($photoevent as $photo) {
+        foreach ($photoevents as $photo) {
             if (File::exists('event/' . $photo->eventphoto)) {
                 File::delete("event/" . $photo->eventphoto);
             }
@@ -131,18 +118,20 @@ class eventController extends Controller
         return back();
     }
 
-    public function search_event(Request $request)
+    public function searchEvent(Request $request)
     {
         if ($request->search) {
-            $event =  eventbaru::where('event_name', 'LIKE', '%' . $request->search . '%')
+            $event =  event::where('event_name', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('event_desc', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('event_location', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('event_cover', 'LIKE', '%' . $request->search . '%')
             ->orWhere('tanggal_mulai', 'LIKE', '%' . $request->search . '%')
             ->orWhere('tanggal_akhir', 'LIKE', '%' . $request->search . '%')
             ->paginate(2);
         } else {
-            $event = eventbaru::all();
+            $event = event::all();
         }
 
         return view('admin.event.home', compact('event'));
     }
 }
-

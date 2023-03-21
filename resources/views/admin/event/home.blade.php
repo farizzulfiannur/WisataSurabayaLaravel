@@ -59,13 +59,13 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('destinasi') }}">
                     <i class="fas fa-fw fa-map-marked-alt"></i>
                     <span>Destinasi</span></a>
             </li>
-            <li class="nav-item">'
-                <a class="nav-link" href="{{route('event')}}">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-bullhorn fa-3x"></i>
                     <span>Event</span></a>
             </li>
@@ -129,7 +129,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Tabel Event</h6>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('search_event') }}" method="GET">
+                            <form action="{{ route('searchEvent') }}" method="GET">
                                 <div class="row">
                                     <div class="col-4">
                                         <div class="input-group-append">
@@ -141,7 +141,7 @@
                                         </div>
                                     </div>
                                     <div class="col-8 d-flex justify-content-end mb-2">
-                                        <a href="{{ route('addEvent') }}" class="btn btn-primary" role="button">
+                                        <a href="{{ route('tambahEvent') }}" class="btn btn-primary" role="button">
                                             <i class="fa fa-plus" aria-hidden="true"></i> </a></td>
                                     </div>
                                 </div>
@@ -163,10 +163,11 @@
                                         <tr>
                                             {{-- <th scope="col">No</th> --}}
                                             <th scope="col">Nama</th>
-                                            <th scope="col">Location</th>
+                                            <th scope="col">Lokasi</th>
                                             <th scope="col">Tanggal Mulai</th>
                                             <th scope="col">Tanggal Akhir</th>
                                             <th scope="col">Description</th>
+                                            <th scope="col">Penyelenggara</th>
                                             <th scope="col">Cover</th>
                                             <th scope="col"> Image </th>
                                             <th scope="col"></th>
@@ -176,11 +177,11 @@
                                     <tbody>
                                         @foreach ($event as $ev)
                                             <tr>
-                                                {{-- <td>{{ $no++ }}</td> --}}
                                                 <td>{{ $ev->event_name }}</td>
                                                 <td>{{ $ev->event_location }}</td>
                                                 <td>{{ $ev->tanggal_mulai }}</td>
                                                 <td>{{ $ev->tanggal_akhir }}</td>
+                                                <td>{{ $ev->event_penyelenggara }}</td>
                                                 <td>{{ $ev->event_desc }}</td>
                                                 <td>
                                                     <img src="{{ asset('cover/' . $ev->event_cover) }}"
@@ -188,29 +189,20 @@
                                                         style="border-radius: 100%">
                                                 </td>
                                                 <td>
-                                                    @foreach ($ev->photoeventbarus as $photo)
+                                                    @foreach ($ev->photoevents as $photo)
                                                         <img class="mb-2"
-                                                            src="{{ asset('event/' . $photo->eventphotos) }}"
+                                                            src="{{ asset('event/' . $photo->eventphoto) }}"
                                                             alt="image" height="40px" width="40px"
                                                             style="border-radius: 100%">
                                                     @endforeach
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <a href="{{ route('edit_event', [$ev->id]) }}"
+                                                        <a href="{{ route('editEvent', [$ev->id]) }}"
                                                             class="btn btn-outline-success" role="button"><i
                                                                 class="fas fa-edit"></i></a>
                                                     </div>
                                                     <div class="mt-2">
-                                                        {{-- <form action=" {{ route('deleteDestinasi', [$dest->id]) }} ">
-                                                            <button class="btn btn-outline-danger"
-                                                                onclick="return confirm('Apakah anda yakin ingin menghapus?');"
-                                                                type="submit"><i class="fa fa-trash"
-                                                                    aria-hidden="true"></i></button>
-                                                            @csrf
-                                                            @method('delete')
-                                                        </form> --}}
-
                                                         <a class="btn btn-outline-danger" href="#"
                                                             role="button" data-toggle="modal"
                                                             data-target="#deleteModal">
@@ -238,7 +230,7 @@
                                                                     <button class="btn btn-secondary" type="button"
                                                                         data-dismiss="modal">Cancel</button>
                                                                     <form
-                                                                        action=" {{ route('delete_event', [$ev->id]) }} ">
+                                                                        action=" {{ route('deleteEvent', [$ev->id]) }} ">
                                                                         <button class="btn btn-primary"
                                                                             type="submit">Delete</button>
                                                                         @csrf
@@ -253,7 +245,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                    {{ $event->links('paginatecustom') }}
+                                {{ $event->links('paginatecustom') }}
                             </div>
                         </div>
                     </div>
