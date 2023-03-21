@@ -124,8 +124,13 @@
                             </a>
                         </li>
                         <li class="">
-                            <a class="font-weight-bold" href="{{ route('destinasi') }}">
+                            <a class="font-weight-bold" href="{{ route('publicDestinasi') }}">
                                 Destinasi
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="font-weight-bold" href="{{ route('publicEvent') }}">
+                                Event
                             </a>
                         </li>
                         <li class="">
@@ -163,7 +168,7 @@
             <div class="mt-9 container-shortcut">
                 <div class="d-flex">
                     <div class="text-center group-shortcut">
-                        <a href="#" class="btn-shortcut btn-beat-radial">
+                        <a href="{{ route('publicDestinasi') }}" class="btn-shortcut btn-beat-radial">
                             <div class="d-block w-100">
                                 <i class="fa fa-fw fa-map-marked-alt fa-3x"></i>
                             </div>
@@ -175,7 +180,7 @@
                         </a>
                     </div>
                     <div class="text-center group-shortcut">
-                        <a href="#" class="btn-shortcut btn-beat-radial">
+                        <a href="{{route('publicEvent')}}" class="btn-shortcut btn-beat-radial">
                             <div class="d-block w-100">
                                 <i class="fa fa-fw fa-bullhorn fa-3x"></i>
                             </div>

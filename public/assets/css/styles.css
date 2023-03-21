@@ -21,8 +21,7 @@ body {
 }
 
 .tester {
-    border: 2px solid red;
-    background-color: blue;
+    border: 2px solid rgba(255, 0, 0, 0.007);
 }
 
 .border-gambar {
@@ -63,7 +62,8 @@ body {
 }
 
 .accordion-reedit {
-    --bs-accordion-btn-padding-x: 12.5rem;
+    /* --bs-accordion-btn-padding-x: 6.5rem; */
+    --bs-accordion-btn-padding-x: 18rem;
     --bs-accordion-btn-padding-y: 0.5rem;
 }
 

@@ -9,12 +9,13 @@ class dest_photo extends Model
 {
     use HasFactory;
 
-    public function destination(){
-        return $this->belongsTo(destination::class);
-    }
+    
     protected $fillable = [
-        'dest_photo1',
-        'dest_photo2',
-        'dest_photo3',
+        'dest_id',
+        'destinasi_photo',
     ];
+
+    // public function destination(){
+    //     return $this->hasMany(destination::class);
+    // }
 }
