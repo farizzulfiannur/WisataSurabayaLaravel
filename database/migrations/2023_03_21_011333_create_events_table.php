@@ -20,7 +20,7 @@ class CreateEventsTable extends Migration
             $table->string('tanggal_mulai');
             $table->string('tanggal_akhir');
             $table->string('event_cover');
-            $table->string('event_desc');
+            $table->text('event_desc');
             $table->string('event_penyelenggara');
             $table->timestamps();
         });

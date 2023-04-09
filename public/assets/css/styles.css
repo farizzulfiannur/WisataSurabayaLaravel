@@ -63,8 +63,10 @@ body {
 
 .accordion-reedit {
     /* --bs-accordion-btn-padding-x: 6.5rem; */
-    --bs-accordion-btn-padding-x: 18rem;
-    --bs-accordion-btn-padding-y: 0.5rem;
+    /* --bs-accordion-btn-padding-x: 14rem;
+    --bs-accordion-btn-padding-y: 0rem; */
+    /* --bs-accordion-btn-padding-x: 18rem;
+    --bs-accordion-btn-padding-y: 0.5rem; */
 }
 
 .accordion-item {

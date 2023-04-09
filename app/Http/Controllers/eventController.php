@@ -120,18 +120,15 @@ class EventController extends Controller
 
     public function searchEvent(Request $request)
     {
-        if ($request->search) {
-            $event =  event::where('event_name', 'LIKE', '%' . $request->search . '%')
+        $event =  event::where('event_name', 'LIKE', '%' . $request->search . '%')
             ->orWhere('event_desc', 'LIKE', '%' . $request->search . '%')
             ->orWhere('event_location', 'LIKE', '%' . $request->search . '%')
             ->orWhere('event_cover', 'LIKE', '%' . $request->search . '%')
             ->orWhere('tanggal_mulai', 'LIKE', '%' . $request->search . '%')
             ->orWhere('tanggal_akhir', 'LIKE', '%' . $request->search . '%')
             ->paginate(2);
-        } else {
-            $event = event::all();
-        }
-
+        $event->withPath('search');
+        $event->appends($request->all());
         return view('admin.event.home', compact('event'));
     }
 }

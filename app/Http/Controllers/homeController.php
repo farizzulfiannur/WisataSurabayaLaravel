@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\destination;
-use App\Models\event;
+use App\Models\Event;
 use App\Models\eventbaru;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -34,7 +34,7 @@ class homeController extends Controller
     }
 
     public function event(){
-        $event = event::paginate(6);
+        $event = Event::paginate(6);
         return view('event', compact('event'));
     }
 
@@ -49,34 +49,29 @@ class homeController extends Controller
     }
 
     public function filter(Request $request){
-        // if ($request ->has('search')) {
-        //     $destinasi =  destination::where('dest_name', 'LIKE', '%' . $request->search . '%')
-        //     ->orWhere('dest_category', 'LIKE', '%' . $request->search . '%')
-        //     ->orWhere('dest_location', 'LIKE', '%' . $request->search . '%')
-        //     ->paginate(6);
-        // }
-         if($request ->has('selectcategory')){
-            $destinasi = destination::where('dest_category', 'LIKE', '%' . $request->selectcategory . '%')
+        $destinasi = destination::where('dest_category', 'LIKE', '%' . $request->selectcategory . '%')
             ->paginate(6);
-        } else {
-            $destinasi = destination::all();
-        }
-        return view('destinasi', compact('destinasi'));
+        $destinasi->withPath('filter');
+        $destinasi->appends($request->all());
+        return view('destinasi',compact('destinasi'));
     }
 
     public function filterEvent(Request $request){
-         if ($request ->has('search')) {
-            $event =  event::where('event_name', 'LIKE', '%' . $request->search . '%')
+
+        $event =  event::where('event_name', 'LIKE', '%' . $request->search . '%')
             ->orWhere('event_desc', 'LIKE', '%' . $request->search . '%')
             ->orWhere('event_location', 'LIKE', '%' . $request->search . '%')
             ->orWhere('event_cover', 'LIKE', '%' . $request->search . '%')
             ->orWhere('tanggal_mulai', 'LIKE', '%' . $request->search . '%')
             ->orWhere('tanggal_akhir', 'LIKE', '%' . $request->search . '%')
             ->paginate(6);
-        }
-        else {
-            $event = event::all();
-        }
+        
+        $event->withPath('filter');
+        $event->appends($request->all());
         return view('event', compact('event'));
+    }
+
+    public function team(){
+        return view('card');
     }
 }
