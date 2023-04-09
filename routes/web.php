@@ -30,6 +30,8 @@ Route::get('/dest/filter', [homeController::class,'filter'])->name('filterDestin
 Route::get('/eventku',[homeController::class,'event'])->name('publicEvent');
 Route::get('eventku/detail/{id}',[homeController::class,'detailEvent'])->name('detailEvent');
 Route::get('/eventku/filter', [homeController::class,'filterEvent'])->name('filterEvent');
+Route::get('/team',[homeController::class,'team'])->name('team');
+
 
 // Proses Registrasi
 Route::get('/login',[loginController::class,'login'])->name('login');
@@ -74,3 +76,5 @@ Route::get('contri/destinasi/edit/{id}',[contriController::class,'edit'])->name(
 Route::post('contri/destinasi/update/{id}',[contriController::class,'update'])->name('updateDestinasic')->middleware('auth','contri');
 Route::delete('contri/destinasi/delete/{id}',[contriController::class,'delete'])->name('deleteDestinasic')->middleware('auth','contri');
 Route::get('contri/destinasi/search',[contriController::class,'search'])->name('searchDestinasic');
+
+// Event

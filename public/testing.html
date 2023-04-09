@@ -1,632 +1,308 @@
-<!DOCTYPE html>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<html lang="id">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<head>
-    <link rel="shortcut icon" href="https://tourism.surabaya.go.id/assets/front/images/favicon.png" />
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Dinas Kebudayaan, Kepemudaan, dan Olahraga serta Pariwisata Kota Surabaya">
-    <title>
-        Lomba Perahu Layar - Wisata Surabaya
-    </title>
-    <meta name="description"
-        content="Lomba Perahu Layar diadakan di Pantai
-Kenjeran setiap satu tahun sekali. Para peserta
-mempercantik perahunya dengan kreasi corak
-layar warna-warni yang beraneka. Tahun ini dipilih bulan Mei dengan jadwal tentative menyesuaikan kondisi cuaca dan angin">
-
-    <meta property="og:site_name" content="Wisata Surabaya">
-    <meta property="og:title" content="Wisata Surabaya - Lomba Perahu Layar">
-    <meta property="og:description"
-        content="Lomba Perahu Layar diadakan di Pantai
-Kenjeran setiap satu tahun sekali. Para peserta
-mempercantik perahunya dengan kreasi corak
-layar warna-warni yang beraneka. Tahun ini dipilih bulan Mei dengan jadwal tentative menyesuaikan kondisi cuaca dan angin">
-    <meta property="og:image" itemprop="image"
-        content="https://tourism.surabaya.go.id/assets/front/images/img-meta.jpg">
-    <meta property="og:image:url" content="https://tourism.surabaya.go.id/assets/front/images/img-meta.jpg">
-    <meta property="og:image:secure_url" content="https://tourism.surabaya.go.id/assets/front/images/img-meta.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:image:type" content="image/jpg">
-    <meta property="og:image:width" content="256">
-    <meta property="og:image:height" content="256">
-    <meta property="og:url" content="https://tourism.surabaya.go.id/agenda/detail/lomba-perahu-layar">
-
-    <link rel="shortcut icon" href="https://tourism.surabaya.go.id/assets/front/images/favicon.png" />
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/menuzord.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/star.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
-    <style>
-        #content,
-        #content p {
-            font-size: 17px;
-        }
-    </style>
-</head>
-
-<body id="body" class="up-scroll">
-    <header class="header" id="pageTop">
-        <!-- Navigasi -->
-        <section class="navigasi">
-            <nav class="navbar navbar-expand-lg box-navbar" data-bs-theme="white">
-                <div class="container p-2">
-                    <a class="navbar-brand ms-3" href="#">
-                        <img src="{{ asset('assets/img/header/surabaya.png') }}" alt="Bootstrap" width="105px">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end
-                        me-4" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" style="font-size: 20px;
-                                    font-weight: 500;" href="{{ route('home') }}">Beranda</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" style="font-size: 20px;
-                                    font-weight: 500;" href="{{ route('publicDestinasi') }}">Destinasi</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" style="font-size: 20px;
-                                    font-weight: 500;" href="{{ route('publicEvent') }}"> Event </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" style="font-size: 20px;
-                                    font-weight: 500;" href="{{ route('login') }}">Login</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </section>
-    </header>
-
-    <section class="page-title bg-white">
-        <div class="pt-7">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="page-title-content">
-                            <nav class="mb-2" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                                <ol class="breadcrumb mb-0 justify-content-center">
-                                    <li class="breadcrumb-item">
-                                        <a href="https://tourism.surabaya.go.id">
-                                            Beranda
-                                        </a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">
-                                        Event
-                                    </li>
-                                </ol>
-                            </nav>
-                            <div class="">
-                                <h2 class="text-uppercase font-weight-bold">
-                                    Lomba Perahu Layar
-                                </h2>
+<!-- Team -->
+<section id="team" class="pb-5">
+    <div class="container">
+        <h5 class="section-title h1">OUR TEAM</h5>
+        <div class="row">
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_02.png" alt="card image"></p>
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_03.png" alt="card image"></p>
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_04.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_05.png" alt="card image"></p>
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+
         </div>
-    </section>
-
-    <section class="py-7">
-        <div class="container">
-            <div class="row mb-4">
-                <div class="col-md-7">
-                    <div class="position-relative">
-                        <div id="gallery-photo-slider" class="owl-carousel owl-theme gallery-photo-slider mb-6">
-                            <div class="item" data-hash="1">
-                                <img class="lazyestload img-event-detail h-100"
-                                    data-src="https://tourism.surabaya.go.id/storage/event/Lomba%20Perahu%20Layar_1_1675835462_1.jpg"
-                                    src="https://tourism.surabaya.go.id/storage/event/Lomba%20Perahu%20Layar_1_1675835462_1.jpg"
-                                    alt="image" style="object-fit: cover; min-height: 750px;" />
-                            </div>
-                        </div>
-                        <div class="owl-slider-tabs position-absolute">
-                            <ul class="list-unstyled d-flex mb-0">
-                                <li class="">
-                                    <a class="one slidetabs active" href="#1">
-                                        <img class="lazyestload img-fluid"
-                                            data-src="https://tourism.surabaya.go.id/storage/event/Lomba%20Perahu%20Layar_1_1675835462_1.jpg"
-                                            src="https://tourism.surabaya.go.id/storage/event/Lomba%20Perahu%20Layar_1_1675835462_1.jpg"
-                                            alt="img"
-                                            style="border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; height: 60px; width: 93px; object-fit: cover;" />
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="card mb-2 shadow">
-                        <div class="card-body px-1">
-                            <div class="d-flex align-items-center">
-                                <div class="text-center p-1 mr-2">
-                                    <i class="fa fa-fw fa-map-marked-alt" style="font-size: 30px;"></i>
-                                </div>
-                                <div>
-                                    <h6 class="font-weight-bold mb-1">
-                                        Alamat
-                                    </h6>
-                                    <p class="mb-0">
-                                        Taman Hiburan Pantai Kenjeran, Jalan Pantai Kenjeran Lama, Bulak, Surabaya 60121
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mt-6 my-2 shadow">
-                        <div class="card-body px-1">
-                            <div class="d-flex align-items-center">
-                                <div class="text-center p-1 mr-2">
-                                    <i class="fa fa-fw fa-calendar-alt" style="font-size: 30px;"></i>
-                                </div>
-                                <div>
-                                    <h6 class="font-weight-bold mb-1">
-                                        Tanggal
-                                    </h6>
-                                    <p class="mb-0">
-                                        01 Mei 2023
-                                        - 31 Mei 2023
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card my-2 shadow">
-                        <div class="card-body px-1">
-                            <div class="d-flex align-items-center">
-                                <div class="text-center p-1 mr-2">
-                                    <i class="fa fa-fw fa-clock" style="font-size: 30px;"></i>
-                                </div>
-                                <div>
-                                    <h6 class="font-weight-bold mb-1">
-                                        Waktu
-                                    </h6>
-                                    <p class="mb-0">
-                                        06:00
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card my-2 shadow">
-                        <div class="card-body px-1">
-                            <div class="d-flex align-items-center">
-                                <div class="text-center p-1 mr-2">
-                                    <i class="fa fa-fw fa-user" style="font-size: 30px;"></i>
-                                </div>
-                                <div>
-                                    <h6 class="font-weight-bold mb-1">
-                                        Penyelenggara
-                                    </h6>
-                                    <p class="mb-0">
-                                        Dinas Kebudayaan, Kepemudaan dan Olahraga serta Pariwisata Kota Surabaya
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="my-3">
-                        <div class="mb-2">
-                            <a href="https://www.google.com/maps?f=d&saddr=My+Location&daddr=-7.237549,112.795568&dirflg=d"
-                                class="btn btn-primary btn-sm" target="_blank">
-                                <i class="fa fa-search"></i>
-                                Lihat Rute
-                            </a>
-                        </div>
-                        <div class="text-center" style="height: 300px;">
-                            <script type="text/javascript"
-                                src="https://maps.googleapis.com/maps/api/js?v=quarterly&region=GB&language=en-gb&key=AIzaSyAtqWsq5Ai3GYv6dSa6311tZiYKlbYT4mw&libraries=geometry,places"></script>
-
-
-
-
-
-                            <div id="map-canvas-0"
-                                style="width: 100%; height: 100%; margin: 0; padding: 0; position: relative; overflow: hidden;">
-                            </div>
-
-                            <script type="text/javascript">
-
-                                var maps = [];
-
-                                function initialize_0() {
-                                    var bounds = new google.maps.LatLngBounds();
-                                    var infowindow = new google.maps.InfoWindow();
-                                    var position = new google.maps.LatLng(-7.237549, 112.795568);
-
-                                    var mapOptions_0 = {
-                                        center: position,
-                                        zoom: 14,
-                                        mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                        disableDefaultUI: false,
-                                        scrollwheel: true,
-                                        zoomControl: true,
-                                        mapTypeControl: true,
-                                        scaleControl: false,
-                                        streetViewControl: true,
-                                        rotateControl: false,
-                                        fullscreenControl: true,
-                                        gestureHandling: 'auto'
-                                    };
-
-                                    var map_0 = new google.maps.Map(document.getElementById('map-canvas-0'), mapOptions_0);
-                                    map_0.setTilt(0);
-
-                                    var markers = [];
-                                    var infowindows = [];
-                                    var shapes = [];
-
-                                    var markerPosition_0 = new google.maps.LatLng(-7.237549, 112.795568);
-
-                                    var marker_0 = new google.maps.Marker({
-                                        position: markerPosition_0,
-
-
-
-
-
-
-
-                                        title: "My Location",
-                                        label: ""
-                                        ,
-                                        animation: google.maps.Animation.BOUNCE,
-                                        icon: ""
-                                    });
-
-                                    bounds.extend(marker_0.position);
-
-                                    marker_0.setMap(map_0);
-                                    markers.push(marker_0);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    var idleListener = google.maps.event.addListenerOnce(map_0, "idle", function () {
-                                        map_0.setZoom(14);
-
-
-                                    });
-
-                                    var map = map_0;
-
-
-
-
-                                    maps.push({
-                                        key: 0,
-                                        markers: markers,
-                                        infowindows: infowindows,
-                                        map: map_0,
-                                        shapes: shapes
-                                    });
-                                }
-
-
-                                google.maps.event.addDomListener(window, 'load', initialize_0);
-
-
-                            </script>
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-8">
-                <div class="col-md-12 my-2">
-                    <div class="text-justify" id="content">
-                        Lomba Perahu Layar diadakan di Pantai
-                        Kenjeran setiap satu tahun sekali. Para peserta
-                        mempercantik perahunya dengan kreasi corak
-                        layar warna-warni yang beraneka. Tahun ini dipilih bulan Mei dengan jadwal tentative
-                        menyesuaikan kondisi cuaca dan angin
-                    </div>
-                </div>
-            </div>
-            <div class="py-6">
-                <div class="pb-4">
-                    <h3 class="font-weight-bold">
-                        Event Lainnya
-                    </h3>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 text-center my-2">
-                        <a href="https://tourism.surabaya.go.id/agenda/detail/teatrikal-resolusi-jihad"
-                            class="text-dark">
-                            <div class="img-rounded-hover-effect">
-                                <img class="img-fluid"
-                                    src="https://tourism.surabaya.go.id/storage/event/Teatrikal%20Resolusi%20Jihad_1_1677474235_1.JPG"
-                                    alt="Teatrikal Resolusi Jihad">
-                            </div>
-                            <div class="mt-2">
-                                <div class="">
-                                    <span class="badge badge-primary">
-                                        22 Oktober 2023
-                                    </span>
-                                </div>
-                                <hr class="my-2 bg-primary w-100">
-                                <h5 class="font-weight-bold">
-                                    Teatrikal Resolusi Jihad
-                                </h5>
-                                <h6>
-                                    <i class="fa fa-fw fa-map-marker-alt"></i>
-                                    Surabaya
-                                </h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 text-center my-2">
-                        <a href="https://tourism.surabaya.go.id/agenda/detail/teatrikal-di-tugu-pahlawan"
-                            class="text-dark">
-                            <div class="img-rounded-hover-effect">
-                                <img class="img-fluid"
-                                    src="https://tourism.surabaya.go.id/storage/event/Teatrikal%20di%20Tugu%20Pahlawan_1_1677812920_1.jpeg"
-                                    alt="Teatrikal di Tugu Pahlawan">
-                            </div>
-                            <div class="mt-2">
-                                <div class="">
-                                    <span class="badge badge-primary">
-                                        10 September 2023
-                                    </span>
-                                </div>
-                                <hr class="my-2 bg-primary w-100">
-                                <h5 class="font-weight-bold">
-                                    Teatrikal di Tugu Pahlawan
-                                </h5>
-                                <h6>
-                                    <i class="fa fa-fw fa-map-marker-alt"></i>
-                                    Tugu Pahlawan, Pahlawan St, Alun-alun Contong, Bubutan, Surabaya City, East Java
-                                    60174
-                                </h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 text-center my-2">
-                        <a href="https://tourism.surabaya.go.id/agenda/detail/teatrikal-di-tugu-pahlawan"
-                            class="text-dark">
-                            <div class="img-rounded-hover-effect">
-                                <img class="img-fluid"
-                                    src="https://tourism.surabaya.go.id/storage/event/Teatrikal%20di%20Tugu%20Pahlawan_1_1677812001_1.jpeg"
-                                    alt="Teatrikal di Tugu Pahlawan">
-                            </div>
-                            <div class="mt-2">
-                                <div class="">
-                                    <span class="badge badge-primary">
-                                        11 Juni 2023
-                                    </span>
-                                </div>
-                                <hr class="my-2 bg-primary w-100">
-                                <h5 class="font-weight-bold">
-                                    Teatrikal di Tugu Pahlawan
-                                </h5>
-                                <h6>
-                                    <i class="fa fa-fw fa-map-marker-alt"></i>
-                                    Tugu Pahlawan, Pahlawan St, Alun-alun Contong, Bubutan, Surabaya City, East Java
-                                    60174
-                                </h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"
-        style="transform:rotate(180deg);margin-bottom:-1px">
-        <path class="elementor-shape-fill" fill="#4a4a8a" opacity="0.33"
-            d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z">
-        </path>
-        <path class="elementor-shape-fill" fill="#4a4a8a" opacity="0.66"
-            d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z">
-        </path>
-        <path class="elementor-shape-fill" fill="#4a4a8a"
-            d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0 h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z">
-        </path>
-    </svg>
-    <footer class="footer">
-        <div class="py-5" style="background: #4a4a8a;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 my-4">
-                        <div class="title-tag">
-                            <h6>Find Us</h6>
-                        </div>
-                        <div class="pt-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <a href="http://">
-                                        Tourism Information Center <br>
-                                        Jl. Gubernur Suryo 15
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://tourism.surabaya.go.id/contact"
-                                        class="btn btn-white px-2 py-1 font-weight-bold">
-                                        <i class="fa fa-fw fa-phone"></i>
-                                        Kontak Kami
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="list-inline d-flex mb-0">
-                                <li class="me-3 me-lg-2 me-xl-3">
-                                    <a class="icon-default icon-border rounded-circle hover-bg-primary"
-                                        style="border: 1px solid white;" href="http://instagram.com/surabayasparkling">
-                                        <i class="fab fa-lg fa-facebook text-white" aria-hidden="true"></i> </a>
-                                </li>
-                                <li class="me-3 me-lg-2 me-xl-3">
-                                    <a class="icon-default icon-border rounded-circle hover-bg-primary"
-                                        style="border: 1px solid white;" href="https://twitter.com/TICSby"> <i
-                                            class="fab fa-lg fa-instagram text-white" aria-hidden="true"></i> </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 my-4">
-                        <div class="title-tag">
-                            <h6>Contact Us</h6>
-                        </div>
-                        <div class="pt-6">
-                            <p>
-                                Dinas Kebudayaan, Kepemudaan dan Olahraga serta Pariwisata Kota Surabaya Kota Surabaya
-                            </p>
-                            <ul class="list-unstyled">
-                                <li class="row my-2">
-                                    <div class="col-2">
-                                        <span class="fa fa-lg fa-fw fa-map-marker-alt"></span>
-                                    </div>
-                                    <div class="col-10">
-                                        <p>
-                                            Jl. Tunjungan No.1-3 Kelurahan Genteng <br>
-                                            Kecamatan Genteng, Kota Surabaya <br>
-                                            Jawa Timur, Indonesia, 60275
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="row my-2">
-                                    <div class="col-2">
-                                        <span class="fa fa-lg fa-fw fa-phone"></span>
-                                    </div>
-                                    <div class="col-10">
-                                        <p>
-                                            031-5318409
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="row my-2">
-                                    <div class="col-2">
-                                        <span class="fa fa-lg fa-fw fa-envelope"></span>
-                                    </div>
-                                    <div class="col-10">
-                                        <p>
-                                            disbudporapar@surabaya.go.id
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 my-4">
-                        <div class="title-tag">
-                            <h6>Our Other Sites</h6>
-                        </div>
-                        <div class="pt-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <a href="https://disbudporapar.surabaya.go.id">
-                                        Disbudporapar Surabaya
-                                    </a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="https://virtualtourism.surabaya.go.id">
-                                        360° Surabaya
-                                    </a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="https://tiketwisata.surabaya.go.id">
-                                        Tiket Wisata Surabaya
-                                    </a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="https://ka-mus.surabaya.go.id">
-                                        Katalog Museum Surabaya
-                                    </a>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="https://bangga.surabaya.go.id/">
-                                        Bangga Surabaya
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 my-4">
-                        <div class="py-4 text-white text-right" style="font-size: 20px;">
-                            WISATA SURABAYA
-                        </div>
-                        <div id="histats_counter">
-                            <script type="text/javascript">var _Hasync = _Hasync || [];
-                                _Hasync.push(['Histats.start', '1,4660129,4,408,270,55,00011110']);
-                                _Hasync.push(['Histats.fasi', '1']);
-                                _Hasync.push(['Histats.track_hits', '']);
-                                (function () {
-                                    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-                                    hs.src = ('//s10.histats.com/js15_as.js');
-                                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-                                })();
-                            </script>
-                            <noscript>
-                                <a href="/" target="_blank">
-                                    <img src="//sstatic1.histats.com/0.gif?4660129&101" alt="" border="0">
-                                </a>
-                            </noscript>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://tourism.surabaya.go.id/assets/front/js/jquery-3.4.1.min.js"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/bootstrap.bundle.min.js"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/menuzord.js?v= 1655049144"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/isotope.min.js"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/imagesloaded.pkgd.min.js"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/jquery.fancybox.min.js"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/jquery.selectric.min.js"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/lazyestload.js"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/dzsparallaxer.js"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/preloader.js?v= 1655048465"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/owl.carousel.min.js"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/proxymap.js"></script>
-    <script src="https://tourism.surabaya.go.id/assets/front/js/star.js?v= 1655048470"></script>
-</body>
-
-</html>
+    </div>
+</section>
+<!-- Team -->

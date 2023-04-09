@@ -61,6 +61,12 @@
                         <li class="nav-item">
                             <a class="nav-link"
                                 style="font-size: 20px;
+                                    font-weight: 500;"
+                                href="{{ route('team') }}"> Team </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                style="font-size: 20px;
                                         font-weight: 500;"
                                 href="{{ route('login') }}">Login</a>
                         </li>

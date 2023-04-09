@@ -59,6 +59,12 @@
                             <a class="nav-link"
                                 style="font-size: 20px;
                                     font-weight: 500;"
+                                href="{{ route('team') }}"> Team </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                style="font-size: 20px;
+                                    font-weight: 500;"
                                 href="{{ route('login') }}">Login</a>
                         </li>
                     </ul>
@@ -82,9 +88,9 @@
 
             <div class="container">
                 <form action="{{ route('filterDestinasi') }}" method="GET">
-                <div class="accordion-reedit row" id="accordionPanelsStayOpenExample">
+                <div class="row" id="accordionPanelsStayOpenExample">
 
-                    <div class="accordion-item accordion-toggle col-8" style="border: 2px solid #ccc;">
+                    <div class="p-2 accordion-item accordion-toggle col-md-12 col-lg-8" style="border: 2px solid #ccc; display: flex; justify-content: center;">
                             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
@@ -105,7 +111,8 @@
                                 </button>
                             </h2>
                         </div> --}}
-                            <button type="submit" class="badge badge-primary tester col-4"><i class="fa fa-fw fa-search"></i> Filter</button>
+
+                            <button type="submit" class="badge badge-primary tester col-md-12 col-lg-4"><i class="fa fa-fw fa-search"></i> Filter</button>
 
                         <div id="panelsStayOpen-collapseOne" class="accordion-collapse
                                 collapse" aria-labelledby="panelsStayOpen-headingOne" style="border: 2px solid #ccc;">
@@ -178,7 +185,7 @@
                     <div class="container text-center">
                         <div class="row">
                             @foreach ($destinasi as $dest)
-                            <div class="col-4">
+                            <div class="col-md-12 col-lg-4">
                                 <a href="{{ route('detailDestinasi', [$dest->id]) }}" style="text-decoration: none; ">
                                 <div class="mb-2 mt-3 img-rounded-hover-effect">
                                         <img src="{{ asset('cover/' . $dest->dest_cover) }}" alt="Destinasi" class="img-fluid">
@@ -234,7 +241,7 @@
 
                 <!-- Find Us -->
                 <div class="row">
-                    <div class="col-3 mb-5 mt-5 ms-4">
+                    <div class="col-lg-3 col-md-12 mb-5 mt-5">
                         <div class="title-tag mb-5">
                             <h6>FIND US</h6>
                         </div>
@@ -276,14 +283,14 @@
                     </div>
 
                     <!-- Contact Us -->
-                    <div class="col-4 mb-5 mt-5">
+                    <div class="col-lg-4 col-md-12 mb-5 mt-lg-5 mt-md-0">
                         <div class="title-tag mb-5">
                             <h6>CONTACT US</h6>
                         </div>
                         <div class="footer-link mb-2">
                             <p>
                                 Dinas Kebudayaan, Kepemudaan dan
-                                Olahraga <br />serta
+                                Olahraga serta
                                 Pariwisata Kota Surabaya Kota Surabaya
                             </p>
                         </div>
@@ -327,13 +334,13 @@
                     </div>
 
                     <!-- Our Other Sites -->
-                    <div class="col-3 mb-5 mt-5">
+                    <div class="col-lg-3 col-md-12 mb-5 mt-lg-5 mt-md-0">
                         <div class="title-tag mb-5">
                             <h6>OUR OTHER SITES</h6>
                         </div>
-                        <div class="footer-link mb-3">
+                        <div class="footer-link mb-2">
                             <a href="#">
-                                Disbudporapar <br />Surabaya
+                                Disbudporapar Surabaya
                             </a>
                         </div>
                         <div class="footer-link mb-2">
@@ -346,12 +353,12 @@
                                 Tiket Wisata Surabaya
                             </a>
                         </div>
-                        <div class="footer-link mb-3">
+                        <div class="footer-link mb-2">
                             <a href="#">
-                                Katalog Museum <br /> Surabaya
+                                Katalog Museum Surabaya
                             </a>
                         </div>
-                        <div class="footer-link mb-3">
+                        <div class="footer-link mb-2">
                             <a href="#">
                                 Bangga Surabaya
                             </a>
@@ -359,7 +366,7 @@
                     </div>
 
                     <!-- Wisata Surabaya -->
-                    <div class="col-1 mb-5 mt-5">
+                    <div class="col-lg-1 col-md-12 mb-5 mt-lg-5 mt-md-0">
                         <div class="title-tag mb-5">
                             <h6>WISATA SURABAYA</h6>
                         </div>
