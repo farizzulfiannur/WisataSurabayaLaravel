@@ -36,7 +36,6 @@ class adminController extends Controller
 
     public function store(Request $request)
     {
-
         if ($request->hasFile('cover')) {
             $file = $request->file("cover");
             $imageName = time() . '_' . $file->getClientOriginalName();
@@ -61,7 +60,6 @@ class adminController extends Controller
                 Photodest::create($request->all());
             }
         }
-
         return redirect()->route('destinasi');
     }
 
@@ -75,8 +73,8 @@ class adminController extends Controller
     {
         $destinasi = destination::findOrFail($id);
         if ($request->hasFile("cover")) {
-            if (File::exists("cover/" . $destinasi->dest_cover)) {
-                File::delete("cover/" . $destinasi->dest_cover);
+            if (File::exists(public_path('cover').'/'.$destinasi->dest_cover)) {
+                File::delete(public_path('cover').'/'.$destinasi->dest_cover);
             }
             $file = $request->file("cover");
             $destinasi->dest_cover = time() . "_" . $file->getClientOriginalName();

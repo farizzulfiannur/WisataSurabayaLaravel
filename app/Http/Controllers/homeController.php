@@ -13,13 +13,11 @@ class homeController extends Controller
 {
     public function home(){
         $home = Auth::user();
-        return view('home', compact('home'));
+        $destinasi = destination::inRandomOrder()->limit(3)->get();
+        // dd($destinasi);
+        return view('home', compact('home','destinasi'));
     }
 
-    // public function destinasi() {
-    //     $destinasi = destination::paginate(2);
-    //     return view('destinasi', compact('destinasi'));
-    // }
 
     public function admin(){
         return view('admin.home');

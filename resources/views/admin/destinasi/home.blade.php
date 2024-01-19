@@ -235,8 +235,7 @@
                                                                 <div class="modal-footer">
                                                                     <button class="btn btn-secondary" type="button"
                                                                         data-dismiss="modal">Cancel</button>
-                                                                    <form
-                                                                        action=" {{ route('deleteDestinasi', [$dest->id]) }} ">
+                                                                    <form action=" {{ route('deleteDestinasi', [$dest->id]) }} ">
                                                                         <button class="btn btn-primary"
                                                                             type="submit">Delete</button>
                                                                         @csrf

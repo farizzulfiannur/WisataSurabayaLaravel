@@ -112,40 +112,6 @@
 </head>
 
 <body>
-    {{-- <header class="header">
-        <nav class="nav-menuzord nav-menuzord-transparent">
-            <div class="container clearfix">
-                <div id="menuzord" class="menuzord">
-                    <a href="{{ route('home') }}" class="menuzord-text-brand">
-                        <img src="{{ asset('assets/img/header/surabaya.png') }}"
-                            style="width: 120px;" alt="Wisata Surabaya">
-                    </a>
-                    <ul class="menuzord-menu menuzord-right">
-                        <li class="">
-                            <a class="font-weight-bold" href="{{ route('home') }}">
-                                Beranda
-                            </a>
-                        </li>
-                        <li class="">
-                            <a class="font-weight-bold" href="{{ route('publicDestinasi') }}">
-                                Destinasi
-                            </a>
-                        </li>
-                        <li class="">
-                            <a class="font-weight-bold" href="{{ route('publicEvent') }}">
-                                Event
-                            </a>
-                        </li>
-                        <li class="">
-                            <a class="font-weight-bold" href="{{ route('login') }}">
-                                Login
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header> --}}
 
     <nav class="navbar navbar-expand-lg navbar-expand-md nav-menuzord nav-menuzord-transparent" data-bs-theme="white">
         <div class="container p-2">
@@ -275,18 +241,17 @@
                             <img class="image" src="assets/img/belanja/city-of-tomorrow-mall.jpeg" alt="CITO"
                                 height="400px" width="550px">
                         </div>
-                        <span class="badge badge-primary mb-2"> Pusat Perbelanjaan </span>
-                        <h4 class="mb-1 font-weight-bold">City Of Tomorrow</h4>
+                        <span class="badge badge-primary mb-2"> {{ $destinasi[0]->dest_category }} </span>
+                        <h4 class="mb-1 font-weight-bold">{{ $destinasi[0]->dest_name }}</h4>
                         <h6>
                             <i class="fa fa-fw fa-map-marker-alt"></i>
-                            Jl. Ahmad Yani No.288, Dukuh Menanggal, Kec.
-                            Gayungan, Kota SBY, Jawa Timur 60234
+                            {{ $destinasi[0]->dest_location }}
                         </h6>
                     </div>
 
                     <div>
                         <div class="mb-2">
-                            <img class="image" src="assets/img/monumen/tugupahlawan.jpg" alt="Tugu Pahlawan"
+                            <img class="image" src="{{ asset('cover/' . $destinasi[0]->dest_cover ) }}" alt="Tugu Pahlawan"
                                 height="363px" width="550px">
                         </div>
                         <span class="badge badge-primary mb-2">Monumen</span>

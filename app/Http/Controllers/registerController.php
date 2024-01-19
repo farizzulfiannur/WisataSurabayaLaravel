@@ -20,7 +20,7 @@ class registerController extends Controller
             'password' => Hash::make($request ->password),
             'name' => $request -> name,
             'role' => $request -> role,
-        ]);
+        ]); 
 
         if($user){
             Session::flash('berhasil', 'Berhasil Melakukan Registrasi');
