@@ -175,7 +175,7 @@
                                         <div class="form-group mb-3">
                                             <label for="title">Lokasi Event</label>
                                             <input type="text" value="{{ $event->event_penyelenggara }}"
-                                                name="event_location" id="title" class="form-control">
+                                                name="event_penyelenggara" id="title" class="form-control">
                                         </div>
                                         <div class="form-group mb-3">
                                             <label for="title">Tanggal Mulai</label>
@@ -185,7 +185,7 @@
                                         <div class="form-group mb-3">
                                             <label for="title">Tanggal Akhir</label>
                                             <input type="text" value="{{ $event->tanggal_akhir }}"
-                                                name="tanggal_mulai" id="title" class="form-control">
+                                                name="tanggal_akhir" id="title" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label for="event_desc" class="form-label">Deskripsi</label>

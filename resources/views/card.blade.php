@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Our Team</title>
+    <link rel="shortcut icon" href="assets/img/header/logos.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     {{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
@@ -84,7 +85,7 @@
                     <div class="card-content">
                         <div class="card-body p-0">
                             <div class="profile d-flex justify-content-center"> <img
-                                    src="https://thumb.viva.co.id/media/frontend/thumbs3/2022/10/04/633bcce2a5c38-anime-naruto-rayakan-ulang-tahun-ke-20_1265_711.jpg">
+                                    src="{{ asset('assets/img/team/fariz.jpg') }}">
                             </div>
                             <div class="card-title mb-4">
                                 <div style="font-weight: 700; font-size: 17px"
@@ -92,29 +93,28 @@
                                     Mochammad Fariz Zulfiannur
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <small> Leader of Team & Back End Developer </small>
+                                    <small> Back End Developer </small>
                                 </div>
                             </div>
-                            <div class="card-subtitle">
-                                <p> <small class="text-muted"> I expected anything less than perfect for the team of
-                                        experts. They are the best team ever! </small> </p>
+                            <div class="card-subtitle" style="height: 90px">
+                                <p> <small class="text-muted"> This is the best team ever! I really enjoy working with this team. </small> </p>
                             </div>
                         </div>
                         <div class="footer">
                             <div class="d-flex justify-content-center">
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://www.linkedin.com/in/farizzulfiannur/" target="_blank">
                                             <i class="fa fa-linkedin fa-2x"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://github.com/farizzulfiannur" target="_blank">
                                             <i class="fa fa-github fa-2x"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://www.instagram.com/farizzulf/" target="_blank">
                                             <i class="fa fa-instagram fa-2x"></i>
                                         </a>
                                     </li>
@@ -139,26 +139,25 @@
                                     <small> Front End Developer </small>
                                 </div>
                             </div>
-                            <div class="card-subtitle">
-                                <p> <small class="text-muted"> I expected anything less than perfect for the team of
-                                        experts. They are the best team ever! </small> </p>
+                            <div class="card-subtitle" style="height: 90px">
+                                <p> <small class="text-muted"> This is the best team ever! I really enjoy working with this team. </small> </p>
                             </div>
                         </div>
                         <div class="footer">
                             <div class="d-flex justify-content-center">
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://www.linkedin.com/in/faradina-ma-roef-25541b231" target="_blank">
                                             <i class="fa fa-linkedin fa-2x"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://github.com/faradinaam" target="_blank">
                                             <i class="fa fa-github fa-2x"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://instagram.com/faradinaam" target="_blank">
                                             <i class="fa fa-instagram fa-2x"></i>
                                         </a>
                                     </li>
@@ -173,7 +172,7 @@
                     <div class="card-content">
                         <div class="card-body p-0">
                             <div class="profile d-flex justify-content-center"> <img
-                                    src="https://thumb.viva.co.id/media/frontend/thumbs3/2022/10/04/633bcce2a5c38-anime-naruto-rayakan-ulang-tahun-ke-20_1265_711.jpg">
+                                    src="{{ asset('assets/img/team/bagus.png') }}">
                             </div>
                             <div class="card-title mb-4">
                                 <div style="font-weight: 700; font-size: 17px"
@@ -184,26 +183,25 @@
                                     <small> Back End Developer </small>
                                 </div>
                             </div>
-                            <div class="card-subtitle">
-                                <p> <small class="text-muted"> I expected anything less than perfect for the team of
-                                        experts. They are the best team ever! </small> </p>
+                            <div class="card-subtitle" style="height: 90px">
+                                <p> <small class="text-muted"> This is the best team ever! I really enjoy working with this team. </small> </p>
                             </div>
                         </div>
                         <div class="footer">
                             <div class="d-flex justify-content-center">
                                 <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                    <li class="list-inline-item"> 
+                                        <a class="social-icon text-xs-center" href="https://www.linkedin.com/in/bagus-anggriawan-a184811b6/" target="_blank">
                                             <i class="fa fa-linkedin fa-2x"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://github.com/LuciaDunes" target="_blank">
                                             <i class="fa fa-github fa-2x"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://www.instagram.com/gusbagus_anggriawan/" target="_blank">
                                             <i class="fa fa-instagram fa-2x"></i>
                                         </a>
                                     </li>
@@ -218,7 +216,7 @@
                     <div class="card-content">
                         <div class="card-body p-0">
                             <div class="profile d-flex justify-content-center"> <img
-                                    src="{{ asset('https://thumb.viva.co.id/media/frontend/thumbs3/2022/10/04/633bcce2a5c38-anime-naruto-rayakan-ulang-tahun-ke-20_1265_711.jpg') }}">
+                                    src="{{ asset('/assets/img/team/rossa.png') }}">
                             </div>
                             <div class="card-title mb-4">
                                 <div style="font-weight: 700; font-size: 17px"
@@ -229,26 +227,25 @@
                                     <small> Front End Developer </small>
                                 </div>
                             </div>
-                            <div class="card-subtitle">
-                                <p> <small class="text-muted"> I expected anything less than perfect for the team of
-                                        experts. They are the best team ever! </small> </p>
+                            <div class="card-subtitle" style="height: 90px">
+                                <p> <small class="text-muted"> This is the best team ever! I really enjoy working with this team. </small> </p>
                             </div>
                         </div>
                         <div class="footer">
                             <div class="d-flex justify-content-center">
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://www.linkedin.com/in/rossa-lina-astutik-77b3ba22a" target="_blank">
                                             <i class="fa fa-linkedin fa-2x"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://github.com/Rossalna" target="_blank">
                                             <i class="fa fa-github fa-2x"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://instagram.com/rossalinaa.a?igshid=ZDdkNTZiNTM=" target="_blank">
                                             <i class="fa fa-instagram fa-2x"></i>
                                         </a>
                                     </li>
@@ -273,26 +270,25 @@
                                     <small> Front End Developer </small>
                                 </div>
                             </div>
-                            <div class="card-subtitle">
-                                <p> <small class="text-muted"> I expected anything less than perfect for the team of
-                                        experts. They are the best team ever! </small> </p>
+                            <div class="card-subtitle" style="height: 90px">
+                                <p> <small class="text-muted"> This is the best team ever! I really enjoy working with this team. </small> </p>
                             </div>
                         </div>
                         <div class="footer">
                             <div class="d-flex justify-content-center">
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://www.linkedin.com/in/ridha-dinda-fadhilah-57001715b" target="_blank">
                                             <i class="fa fa-linkedin fa-2x"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://github.com/Ridhadhilah" target="_blank">
                                             <i class="fa fa-github fa-2x"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="#">
+                                        <a class="social-icon text-xs-center" href="https://instagram.com/.ridhadhilah.?igshid=YmMyMTA2M2Y= " target="_blank">
                                             <i class="fa fa-instagram fa-2x"></i>
                                         </a>
                                     </li>

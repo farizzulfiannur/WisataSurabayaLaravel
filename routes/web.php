@@ -51,6 +51,7 @@ Route::post('admin/destinasi/store',[adminController::class,'store'])->name('sto
 Route::get('admin/destinasi/delete/{id}',[adminController::class,'delete'])->name('deleteDestinasi')->middleware('auth','admin');
 Route::get('admin/destinasi/edit/{id}',[adminController::class,'edit'])->name('editDestinasi')->middleware('auth','admin');
 Route::post('admin/destinasi/update/{id}',[adminController::class,'update'])->name('updateDestinasi')->middleware('auth','admin');
+Route::get('admin/destinasi/delete/photo/{id}',[adminController::class,'deletePhoto'])->name('deletePhoto')->middleware('auth','admin');
 Route::delete('admin/destinasi/delete/{id}',[adminController::class,'delete'])->name('deleteDestinasi')->middleware('auth','admin');
 Route::get('admin/destinasi/search',[adminController::class,'search'])->name('searchDestinasi');
 

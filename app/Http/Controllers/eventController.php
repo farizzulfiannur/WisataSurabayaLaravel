@@ -112,8 +112,13 @@ class EventController extends Controller
             if (File::exists('event/' . $photo->eventphoto)) {
                 File::delete("event/" . $photo->eventphoto);
             }
+            $photo->delete();
         }
-        // destination::destroy($id);
+
+        if (File::exists('cover/' . $event->event_cover)) {
+            File::delete('cover/' . $event->event_cover);
+        }
+        
         $event->delete();
         return back();
     }

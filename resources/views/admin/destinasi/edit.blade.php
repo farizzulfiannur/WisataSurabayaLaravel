@@ -142,55 +142,46 @@
                         <div class="card-body">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <form action="{{ route('updateDestinasi', [$destinasi->id]) }}" method="post"
-                                        enctype="multipart/form-data">
+                                    <form action="{{ route('updateDestinasi', [$destinasi->id]) }}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group mb-3">
                                             <label for="title">Nama Destinasi</label>
-                                            <input type="text" name="dest_name"
-                                                value="{{ $destinasi->dest_name }}" id="title"
-                                                class="form-control">
+                                            <input type="text" name="dest_name" value="{{ $destinasi->dest_name }}" id="title" class="form-control">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="title">Destinasi Kategori</label>
-                                            <select name="dest_category" class="form-select"
-                                                aria-label="Default select">
+                                            <label for="category">Destinasi Kategori</label>
+                                            <select name="dest_category" class="form-select" aria-label="Default select">
                                                 <option selected>Pilih Kategori</option>
-                                                <option> Pusat Perbelanjaan</option>
-                                                <option> Monumen</option>
-                                                <option> Religi</option>
-                                                <option> Nature and Outdoor</option>
+                                                <option value="Pusat Perbelanjaan" {{ $destinasi->dest_category == 'Pusat Perbelanjaan' ? 'selected' : '' }}>Pusat Perbelanjaan</option>
+                                                <option value="Monumen" {{ $destinasi->dest_category == 'Monumen' ? 'selected' : '' }}>Monumen</option>
+                                                <option value="Religi" {{ $destinasi->dest_category == 'Religi' ? 'selected' : '' }}>Religi</option>
+                                                <option value="Nature and Outdoor" {{ $destinasi->dest_category == 'Nature and Outdoor' ? 'selected' : '' }}>Nature and Outdoor</option>
                                             </select>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="title">Lokasi Destinasi</label>
-                                            <input type="text" value="{{ $destinasi->dest_location }}"
-                                                name="dest_location" id="title" class="form-control">
+                                            <label for="location">Lokasi Destinasi</label>
+                                            <input type="text" value="{{ $destinasi->dest_location }}" name="dest_location" id="location" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label for="dest_desc" class="form-label">Deskripsi</label>
                                             <textarea class="form-control" name="dest_desc" id="dest_desc" rows="3">{{ $destinasi->dest_desc }}</textarea>
                                         </div>
                                         <div class="mb-3">
-                                            <p for=""> Cover : </p>
-                                            <img src="{{ asset('/cover/' . $destinasi->dest_cover) }}"
-                                                class="img-responsive" style="max-height: 100px; max-width: 100px;"
-                                                alt="" srcset="">
-                                            <input type="file" id="input-file-now-custom-3"
-                                                class="form-control m-2" name="cover">
+                                            <p>Cover:</p>
+                                            <img src="{{ asset('/cover/' . $destinasi->dest_cover) }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="">
+                                            <input type="file" id="cover" class="form-control m-2" name="cover">
                                         </div>
                                         @if (count($destinasi->photodests) > 0)
                                             <p>Images:</p>
                                             @foreach ($destinasi->photodests as $img)
-                                                <img src="{{ asset('/destinasi/' . $img->destphoto) }}"
-                                                    class="img-responsive"
-                                                    style="max-height: 100px; max-width: 100px;" alt=""
-                                                    srcset="">
-                                                <input type="file" id="input-file-now-custom-3"
-                                                    class="form-control m-2" name="image_{{ $img->id }}">
+                                                <div class="mb-2">
+                                                    <img src="{{ asset('/destinasi/' . $img->destphoto) }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="">
+                                                    <a class="btn btn-danger" href="{{ route('deletePhoto', [$img->id]) }}" class="back_box_custom2"> X </a>
+                                                    <input type="file" id="image_{{ $img->id }}" class="form-control m-2" name="image_{{ $img->id }}">
+                                                </div>
                                             @endforeach
                                         @endif
-                                        <button type="submit" class="btn btn-danger mt-3 ">Submit</button>
+                                        <button type="submit" class="btn btn-success mt-3">Update</button>
                                     </form>
                                 </div>
                             </div>

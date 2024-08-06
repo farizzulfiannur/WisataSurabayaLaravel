@@ -36,6 +36,7 @@ class adminController extends Controller
 
     public function store(Request $request)
     {
+        $data = null;
         if ($request->hasFile('cover')) {
             $file = $request->file("cover");
             $imageName = time() . '_' . $file->getClientOriginalName();
@@ -113,17 +114,38 @@ class adminController extends Controller
 
     public function delete($id)
     {
-        $destination = destination::findOrFail($id);
+        $destination = Destination::findOrFail($id);
         $photodests = Photodest::where("destination_id", $destination->id)->get();
-
+    
         foreach ($photodests as $photo) {
             if (File::exists('destinasi/' . $photo->destphoto)) {
-                File::delete("destinasi/" . $photo->destphoto);
+                File::delete('destinasi/' . $photo->destphoto);
             }
+            $photo->delete();
         }
-        // destination::destroy($id);
+    
+        if (File::exists('cover/' . $destination->dest_cover)) {
+            File::delete('cover/' . $destination->dest_cover);
+        }
+    
         $destination->delete();
-        return back();
+    
+        return back()->with('success', 'Destination and associated photos deleted successfully.');
+    }
+    public function deletePhoto($id)
+    {
+        $photo = Photodest::findOrFail($id);
+
+        // Delete the photo file from the server
+        $photoPath = public_path('destinasi/' . $photo->destphoto);
+        if (File::exists($photoPath)) {
+            File::delete($photoPath);
+        }
+    
+        // Delete the photo record from the database
+        $photo->delete();
+    
+        return redirect()->back()->with('success', 'Photo deleted successfully.');
     }
 
     public function search(Request $request)
