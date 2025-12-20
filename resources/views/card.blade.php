@@ -147,7 +147,7 @@
                             <div class="d-flex justify-content-center">
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" href="https://www.linkedin.com/in/faradina-ma-roef-25541b231" target="_blank">
+                                        <a class="social-icon text-xs-center" href="https://www.linkedin.com/in/faradina-anggraeni-ma-roef-25541b231/" target="_blank">
                                             <i class="fa fa-linkedin fa-2x"></i>
                                         </a>
                                     </li>

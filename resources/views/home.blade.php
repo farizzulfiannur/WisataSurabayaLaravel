@@ -238,7 +238,7 @@
 
                     <div>
                         <div class="mb-2">
-                            <img class="image" src="assets/img/belanja/city-of-tomorrow-mall.jpeg" alt="CITO"
+                            <img class="image" src="{{ asset('cover/' . $destinasi[0]->dest_cover ) }}" alt="CITO"
                                 height="400px" width="550px">
                         </div>
                         <span class="badge badge-primary mb-2"> {{ $destinasi[0]->dest_category }} </span>
@@ -251,28 +251,28 @@
 
                     <div>
                         <div class="mb-2">
-                            <img class="image" src="{{ asset('cover/' . $destinasi[0]->dest_cover ) }}" alt="Tugu Pahlawan"
+                            <img class="image" src="{{ asset('cover/' . $destinasi[1]->dest_cover ) }}" alt="Tugu Pahlawan"
                                 height="363px" width="550px">
                         </div>
-                        <span class="badge badge-primary mb-2">Monumen</span>
-                        <h4 class="mb-1 font-weight-bold">Monumen Tugu Pahlawan</h4>
+                        <span class="badge badge-primary mb-2">{{ $destinasi[1]->dest_category }}</span>
+                        <h4 class="mb-1 font-weight-bold">{{ $destinasi[1]->dest_name }}</h4>
                         <h6>
                             <i class="fa fa-fw fa-map-marker-alt"></i>
-                            Jl. Pahlawan, Alun-alun Contong, Kec. Bubutan, Kota SBY, Jawa Timur 60174
+                            {{ $destinasi[1]->dest_location }}
                         </h6>
                     </div>
                 </div>
 
                 <div class="col-6 mt-4">
                     <div class="mb-2">
-                        <img class="image" src="assets/img/nature/kbs1.jpg" alt="KBS" height="900px"
+                        <img class="image" src="{{ asset('cover/' . $destinasi[2]->dest_cover ) }}" alt="KBS" height="900px"
                             width="550px">
                     </div>
-                    <span class="badge badge-primary mb-2">Nature and Outdoor</span>
-                    <h4 class="mb-1 font-weight-bold">Kebun Binatang Surabaya</h4>
+                    <span class="badge badge-primary mb-2">{{ $destinasi[2]->dest_category }}</span>
+                    <h4 class="mb-1 font-weight-bold">{{ $destinasi[2]->dest_name }}</h4>
                     <h6>
                         <i class="fa fa-fw fa-map-marker-alt"></i>
-                        Jl. Setail No.1, Darmo, Kec. Wonokromo, Kota SBY, Jawa Timur 60241
+                        {{ $destinasi[2]->dest_location }}
                     </h6>
                 </div>
             </div>
